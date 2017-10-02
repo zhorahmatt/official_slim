@@ -1,0 +1,434 @@
+/*
+	[Table of contents]
+
+	* Responsive
+		- min-width: 1200
+		- min-width: 992
+		- max-width: 1200
+		- max-width: 991
+		- max-width: 767
+		- max-width: 479
+*/
+
+/* + Header */
+/* - Top Header */
+html[dir="rtl"] .top-header .top-left {
+	float: right;
+}
+html[dir="rtl"] .top-header .top-right { 
+	float: left;
+}
+html[dir="rtl"] .top-header .top-left span + span {
+	margin-left: 0;
+	margin-right: 30px;
+}
+html[dir="rtl"] .top-header .top-left span i {
+	margin-left: 6px;
+	margin-right: 0;
+}
+html[dir="rtl"] .top-header .top-right ul li + li {
+    margin-left: 0;
+    margin-right: 10px;
+}
+html[dir="rtl"] .search-box {
+	left: 15px;
+	right: auto;
+}
+
+/* - Menu Block */ 
+html[dir="rtl"] .top-header .top-right > ul,
+html[dir="rtl"] .menu-block .ownavigation .navbar-nav {
+	padding-right: 0;
+}
+html[dir="rtl"] .bottom-footer .ftr-social ul li {
+	margin-left: 0;
+	margin-right: 14px;
+}
+
+/* + Footer */
+/* - Top Footer */
+html[dir="rtl"] .top-footer .widget_social > ul,
+html[dir="rtl"] .top-footer .widget_flickr > ul {
+	padding-right: 0;
+}
+html[dir="rtl"] .top-footer .widget_social > ul > li {
+	float: right;
+	margin-left: 6px;
+	margin-right: 0;
+}
+html[dir="rtl"] .top-footer .widget_flickr > ul > li {
+	float: right;
+	margin-left: 8px;
+	margin-right: 0;
+}
+html[dir="rtl"] .top-footer .widget_contact > p {
+	padding-left: 0;
+	padding-right: 40px;
+}
+html[dir="rtl"] .top-footer .widget_contact > p > i {
+	left: auto;
+	right: 0;
+}
+
+/* - Services Section */
+html[dir="rtl"] .services-section .srv-box { 
+	padding-left: 0;
+	padding-right: 90px;
+}
+html[dir="rtl"] .srv-box > i {
+	left: auto;
+	right: 0;
+}
+html[dir="rtl"] .srv-right .section-header {
+	text-align: right;
+}
+html[dir="rtl"] .services-style-2 .srv-box {
+	padding-left: 30px;
+	padding-right: 120px;
+}
+html[dir="rtl"] .services-style-2 .srv-box > i {
+	left: auto;
+	right: 30px;
+}
+
+/* - About Section */
+html[dir="rtl"] .about-section .section-header {
+	text-align: right;
+}
+html[dir="rtl"] .skill-block span {
+	left: auto;
+	right: 0;
+	margin-left: 0;
+	margin-right: -52px;
+}
+html[dir="rtl"] .skill-block .progress-bar {
+	float: right;
+}
+
+/* - Counter Section */
+html[dir="rtl"] .counter-style-1 .counter-box { 
+	text-align: right;
+	padding-left: 0;
+	padding-right: 80px;
+}
+html[dir="rtl"] .counter-style-1 .counter-box > i {
+	left: auto;
+	right: 0;
+}
+html[dir="rtl"] .counter-style-2 .counter-box .counter-content { 
+	text-align: right;
+}
+html[dir="rtl"] .counter-style-2 .counter-box > span {
+	padding-left: 15px;
+	padding-right: 0;
+}
+
+html[dir="rtl"] .call-to-action-block > a {
+	float: left;
+}
+
+/* - Price Section */
+html[dir="rtl"] .price-box .price-content > ul {
+	padding-right: 0;
+}
+
+/* - Portfolio Section */
+html[dir="rtl"] .portfolio-category ul { 
+	padding-right: 0;
+}
+html[dir="rtl"] .portfolio-category ul li:first-child {
+	margin-left: 17px;
+	margin-right: 0;
+}
+html[dir="rtl"] .portfolio-category ul li:last-child {
+	margin-left: 0;
+	margin-right: 17px;
+}
+
+/* - Portfolio Single */
+html[dir="rtl"] .portfolio-single .portfolio-detail .section-header {
+	text-align: right;
+}
+html[dir="rtl"] .portfolio-detail > ul {
+	padding-right: 0;
+}
+html[dir="rtl"] .portfolio-detail > ul > li + li {
+	margin-left: 0;
+	margin-right: 15px;
+}
+
+/* - Contact Section */
+html[dir="rtl"] .contact-content .section-header {
+	text-align: right;
+}
+html[dir="rtl"] .contact-detail .detail-box {
+	padding-left: 0;
+	padding-right: 35px;
+}
+html[dir="rtl"] .contact-detail .detail-box > i {
+	left: auto;
+	right: 0;
+}
+html[dir="rtl"] .contact-detail > ul {
+	padding-right: 0;
+}
+html[dir="rtl"] .contact-detail > ul > li + li {
+	margin-left: 0;
+	margin-right: 15px;
+}
+
+/* - Blog Single */
+html[dir="rtl"] article.type-post .entry-content blockquote p {
+	padding-left: 0;
+	padding-right: 50px;
+}
+html[dir="rtl"] article.type-post .entry-content blockquote p::before {
+	left: auto;
+	right: 0;
+}
+html[dir="rtl"] .comment-body {
+	padding-left: 0;
+	padding-right: 90px;
+}
+html[dir="rtl"] .comment-author .avatar {
+	left: auto;
+	right: 0;
+}
+html[dir="rtl"] .comment-list .children {
+	padding-left: 0;
+	padding-right: 40px;
+}
+html[dir="rtl"] .comment-list .children > li {
+	padding-left: 0;
+	padding-right: 0.5em;
+}
+
+html[dir="rtl"] .widget_category > ul {
+	padding-right: 0;
+}
+html[dir="rtl"] .widget_category > ul > li > a::before {
+	content: "\e875";
+	float: right;
+	margin-left: 10px;
+	margin-right: 0;
+}
+html[dir="rtl"] .widget_recent_comments > ul {
+	padding-right: 0;
+}
+html[dir="rtl"] .widget_recent_comments > ul > li {
+	padding-left: 0;
+	padding-right: 28px;
+}
+html[dir="rtl"] .widget_recent_comments > ul > li::before {
+	content: "\e8a9";
+	left: auto;
+	right: 0;
+}
+html[dir="rtl"] .widget_post_meta > ul {
+	padding-left: 0;
+	padding-right: 0;
+}
+html[dir="rtl"] .widget_post_meta > ul > li > a::before {
+	float: right;
+	margin-left: 10px;
+	margin-right: 0;
+}
+html[dir="rtl"] .widget_follow ul {
+	padding-right: 0;
+}
+html[dir="rtl"] .widget_follow ul > li {
+	margin-left: 6px;
+	margin-right: 0;
+}
+
+html[dir="rtl"] .testimonial-section .carousel-indicators { 
+	padding-right: 0;
+}
+/* - Testimonials section 3 */
+html[dir="rtl"] .testimonial-section3 .section-header,
+html[dir="rtl"] .testimonial-section3 .item,
+html[dir="rtl"] .testimonial-section3 .carousel-indicators {
+	text-align: right;
+}
+
+/*------------------------------------------------------------------
+	- Responsive
+-------------------------------------------------------------------*/
+/* - min-width: 1200 */
+@media (min-width: 1200px) {
+	/* - About Section */
+	html[dir="rtl"] .skill-block {
+		padding-left: 50px;
+		padding-right: 0;
+	}
+	
+	/* - Call To Action */
+	html[dir="rtl"] .call-to-action-block > a.buy-now {
+		margin-right: 0;
+		margin-left: 20px;
+	}
+}
+
+/* - min-width: 992 */
+@media (min-width: 992px) {
+	/* + Header */
+	html[dir="rtl"] .header_s .ownavigation .search {
+		float: left;
+		margin-left: 0;
+		margin-right: 25px;
+	}
+	/* - Menu Block */
+	html[dir="rtl"] .menu-block .ownavigation {
+		text-align: left;
+	}
+	html[dir="rtl"] .header_s .ownavigation .navbar-header {
+		float: right;
+	}
+	html[dir="rtl"] .ownavigation ul > li > .dropdown-menu {
+		right: 0; 
+		text-align: right;
+	}
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child > .dropdown-menu,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) > .dropdown-menu {
+		left: 0; 
+	}
+	html[dir="rtl"] .ownavigation ul > li > .dropdown-menu,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul ul ul ul ul	{
+		left: auto;
+	}
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul ul ul ul ul {
+		right: 100%;
+	}
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul ul ul ul {
+		left: 100%;
+	}
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation ul > li .dropdown-menu ul ul ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child > .dropdown-menu,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:last-child .dropdown-menu ul ul ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) > .dropdown-menu,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul ul,
+	html[dir="rtl"] .ownavigation .navbar-collapse > ul > li:nth-last-child(2) .dropdown-menu ul ul ul ul ul ul ul ul ul {
+		right: auto;
+	}	
+}
+
+/* - max-width: 1200 */
+@media (max-width: 1200px) {
+	/* - Call To Action Section */
+	html[dir="rtl"] .call-to-action-block > a {
+		float: none;
+	}
+	/* - Blog Single */
+	html[dir="rtl"] .comment-list .children { 
+		padding-right: 10px;
+	}
+}
+
+/* - max-width: 991 */
+@media (max-width: 991px) {
+	/* - Top Header */
+	html[dir="rtl"] .header_s .ownavigation .search {
+		right: auto;
+		left: 93px;
+	}
+	html[dir="rtl"] .ownavigation .navbar-header {
+		float: none;
+	}
+	html[dir="rtl"] .ownavigation .navbar-header .navbar-brand {
+		float: right;
+	}
+	html[dir="rtl"] .ownavigation .navbar-toggle {
+		float: left;
+	}
+	html[dir="rtl"] .ownavigation #loginpanel {
+		right: auto;
+		left: 50px;
+	}
+	html[dir="rtl"] .ownavigation #slideit, 
+	html[dir="rtl"] .ownavigation #closeit {
+		right: 0;
+	}
+	html[dir="rtl"] .ownavigation .ddl-switch {
+		right: auto;
+		left: 0;
+	}
+	/* - Nav Dropdown */
+	html[dir="rtl"] .ownavigation .dropdown-menu {
+		float: right;
+		padding-left: 0;
+		padding-right: 10px;
+		text-align: right;
+	}
+}
+
+/* - max-width: 767 */
+@media (max-width: 767px) {
+	/* - Blog Single */
+	html[dir="rtl"] .comment-list .children { 
+		padding-right: 0;
+	}
+	
+	html[dir="rtl"] .portfolio-single .portfolio-detail > ul > li + li {
+		margin-right: 10px;
+	} 
+}
+
+/* - max-width: 479 */
+@media (max-width: 479px) {
+	html[dir="rtl"] .top-header .top-left span + span {
+		margin-right: 10px;
+	}
+}

@@ -1,0 +1,1 @@
+<script src="{{ url('resources') }}/assets/front/vendis/js/vendis.js"></script>
