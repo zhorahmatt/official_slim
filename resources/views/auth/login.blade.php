@@ -37,7 +37,6 @@
             </div>
 
             <div class="list-group list-group-sm">
-
                 <div class="list-group-item">
                     <input id="email" type="email" placeholder="Email" class="form-control no-border" name="email" value="{{ old('email') }}" required autofocus>
                 </div>
@@ -45,8 +44,14 @@
                 <div class="list-group-item">
                     <input id="password" type="password" placeholder="Password" class="form-control no-border" name="password" required>
                 </div>
-
             </div>
+            
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                </label>
+            </div>
+
             <button type="submit" class="btn btn-lg btn-primary btn-block">Log in</button>
             <div class="text-center m-t m-b"><a href="{{ route('password.request') }}">Forgot password?</a></div>
         </form>
