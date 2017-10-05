@@ -126,6 +126,15 @@
 						</a>
 					</li>
 					@endif
+
+					@if ($status == 'Super Admin' OR $status == 'Admin')
+					<li {{ Request::is('admin/testimonials*') ? 'class=active' : '' }}>
+						<a href="{{ route('testimonials') }}">
+							<i class="icon-grid"></i>
+							<span>Testimonials</span>
+						</a>
+					</li>
+					@endif
 					
 					@if ($status != 'Customer Service')
 					<li {{ Request::is('admin/posts*') ? 'class=active' : '' }}>
