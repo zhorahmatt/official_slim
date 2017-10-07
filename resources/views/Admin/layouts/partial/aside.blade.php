@@ -8,7 +8,7 @@
 				<div class="dropdown wrapper">
 					<a href="app.page.profile">
 						<span class="thumb-lg w-auto-folded avatar m-t-sm">
-							<img src="{{ url('resources/uploaded').'/thumb-'.Auth::user()->image }}" class="img-full" alt="...">
+							<img src="{{ asset('uploaded').'/thumb-'.Auth::user()->image }}" class="img-full" alt="...">
 						</span>
 					</a>
 					<a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded">

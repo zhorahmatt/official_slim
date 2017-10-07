@@ -221,8 +221,8 @@
 @endsection
 
 @section('registerscript')
-	<script src="{{ url('resources') }}/assets/admin/libs/jquery/nestable/jquery.nestable.js"></script>
-	<link rel="stylesheet" href="{{ url('resources') }}/assets/admin/libs/jquery/nestable/jquery.nestable.css">
+	<script src="{{ asset('assets') }}/admin/libs/jquery/nestable/jquery.nestable.js"></script>
+	<link rel="stylesheet" href="{{ asset('assets') }}/admin/libs/jquery/nestable/jquery.nestable.css">
 	<script>
 		$('#modal-edit').on('show.bs.modal', function (e) {
 			var data = $(e.relatedTarget).parents('li').data();

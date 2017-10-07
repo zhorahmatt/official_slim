@@ -48,16 +48,16 @@ class PortfolioController extends Controller
 		$portfolio = new Portfolio();
 
 		// Upload Image
-		$destination = resource_path('uploaded');
+		$destination = public_path('uploaded');
 		$image_arr = GlobalClass::Upload($r->file('image'), $destination, 700);
 		$image = implode(',',$image_arr);
 		
 		// Make copies to media
-		if (!file_exists(resource_path('uploaded/media'))) {
-			mkdir(resource_path('uploaded/media'), 0777, true);
+		if (!file_exists(public_path('uploaded/media'))) {
+			mkdir(public_path('uploaded/media'), 0777, true);
 		}
-		copy(resource_path('uploaded').'/'.$image, resource_path('uploaded/media').'/'.$image);
-		copy(resource_path('uploaded').'/thumb-'.$image, resource_path('uploaded/media').'/thumb-'.$image);
+		copy(public_path('uploaded').'/'.$image, public_path('uploaded/media').'/'.$image);
+		copy(public_path('uploaded').'/thumb-'.$image, public_path('uploaded/media').'/thumb-'.$image);
 
 		$portfolio->title = $r->title;
 		$portfolio->content = $r->content;
@@ -111,20 +111,20 @@ class PortfolioController extends Controller
 		if ($r->hasFile('image')) {
 			// Remove Old Image
 			$old = DB::table('pages')->where('id', $id)->first();
-			@unlink(resource_path('uploaded').'/'.$old->image);
-			@unlink(resource_path('uploaded').'/thumb-'.$old->image);
+			@unlink(public_path('uploaded').'/'.$old->image);
+			@unlink(public_path('uploaded').'/thumb-'.$old->image);
 
 			// Upload Image
-			$destination = resource_path('uploaded');
+			$destination = public_path('uploaded');
 			$image_arr = GlobalClass::Upload($r->file('image'), $destination, 700);
 			$image = implode(',',$image_arr);
 			
 			// Make copies to media
-			if (!file_exists(resource_path('uploaded/media'))) {
-				mkdir(resource_path('uploaded/media'), 0777, true);
+			if (!file_exists(public_path('uploaded/media'))) {
+				mkdir(public_path('uploaded/media'), 0777, true);
 			}
-			copy(resource_path('uploaded').'/'.$image, resource_path('uploaded/media').'/'.$image);
-			copy(resource_path('uploaded').'/thumb-'.$image, resource_path('uploaded/media').'/thumb-'.$image);
+			copy(public_path('uploaded').'/'.$image, public_path('uploaded/media').'/'.$image);
+			copy(public_path('uploaded').'/thumb-'.$image, public_path('uploaded/media').'/thumb-'.$image);
 			
 			// Save to DB
 			$portfolio->image = $image;

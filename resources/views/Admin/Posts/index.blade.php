@@ -35,7 +35,7 @@
 										</div>
 									</div>
 									<div>
-										<img src="{{ url('resources/uploaded') }}/thumb-{{ $p->image }}" class="img-full">
+										<img src="{{ asset('uploaded') }}/thumb-{{ $p->image }}" class="img-full">
 									</div>
 									<div class="wrapper-lg">
 										<h2 class="m-t-none"><a href="{{ route('posts_detail', ['slug' => $p->slug ]) }}">{{ $p->title }}</a></h2>
@@ -94,7 +94,7 @@
 						@foreach ($recent_posts as $rp)
 							<div>
 								<a class="pull-left thumb thumb-wrapper m-r">
-									<img src="{{ url('resources/uploaded') }}/thumb-{{ $rp->image }}">
+									<img src="{{ asset('uploaded') }}/thumb-{{ $rp->image }}">
 								</a>
 								<div class="clear">                        
 									<a href="{{ route('posts_detail', ['slug' => $rp->slug ]) }}" class="font-semibold text-ellipsis">{{ $rp->title }}</a>

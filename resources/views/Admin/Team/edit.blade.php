@@ -52,7 +52,7 @@
 								<label for="">Profil Image</label>
 								@if ($team->image != '')
 									<br>
-									<img src="{{ url('resources/uploaded').'/thumb-'.$team->image }}" width="100%">
+									<img src="{{ asset('uploaded').'/thumb-'.$team->image }}" width="100%">
 									<br>
 									<br>
 								@endif

@@ -21,7 +21,7 @@
 							</div>
 						</div>
 						<div>
-							<img src="{{ url('resources/uploaded') }}/{{ $post->image }}" class="img-full">
+							<img src="{{ asset('uploaded') }}/{{ $post->image }}" class="img-full">
 						</div>
 						<div class="wrapper-lg">
 							<h2 class="m-t-none"><a href="{{ route('posts_detail', ['slug' => $post->slug ]) }}">{{ $post->title }}</a></h2>
@@ -40,7 +40,7 @@
 										<div>
 											<div>
 												<a class="pull-left thumb-sm">
-													<img src="{{ url('resources/uploaded') }}/{{ $c->image }}" class="img-circle">
+													<img src="{{ asset('uploaded') }}/{{ $c->image }}" class="img-circle">
 												</a>
 												<div class="m-l-xxl m-b">
 													<div>
@@ -56,7 +56,7 @@
 											@foreach ($parents->where('id_parent', $c->id) as $parent)
 												<div class="m-l-xxl">
 													<a class="pull-left thumb-sm">
-														<img src="{{ url('resources/uploaded') }}/{{ $parent->image }}" class="img-circle">
+														<img src="{{ asset('uploaded') }}/{{ $parent->image }}" class="img-circle">
 													</a>
 													<div class="m-l-xxl m-b">
 														<div>
@@ -79,7 +79,7 @@
 													<input type="hidden" name="id_posts" value="{{ $post->id }}">
 
 													<a class="pull-left thumb-sm">
-														<img src="{{ url('resources/uploaded').'/thumb-'.Auth::user()->image }}" class="img-circle">
+														<img src="{{ asset('uploaded').'/thumb-'.Auth::user()->image }}" class="img-circle">
 													</a>
 													<div class="m-l-xxl m-b">
 														<textarea class="form-control" name="comment" rows="3" placeholder="Type your comment"></textarea>
@@ -144,7 +144,7 @@
 					@foreach ($recent_posts as $rp)
 						<div>
 							<a class="pull-left thumb thumb-wrapper m-r">
-								<img src="{{ url('resources/uploaded') }}/thumb-{{ $rp->image }}">
+								<img src="{{ asset('uploaded') }}/thumb-{{ $rp->image }}">
 							</a>
 							<div class="clear">                        
 								<a href="{{ route('posts_detail', ['slug' => $rp->slug ]) }}" class="font-semibold text-ellipsis">{{ $rp->title }}</a>

@@ -38,7 +38,7 @@
 					?>
 					<div class="col-md-2 item">
 						<button class="btn btn-danger delete" data-toggle="modal" data-target="#modal-delete" data-name="{{ $image }}">Delete</button>
-						<a href="{{ url('resources') }}/uploaded/media/{{ $image }}" target="_blank"><div class="media-item" style="background-image: url('{{ url('resources') }}/uploaded/media/{{ $image }}');"></div></a>
+						<a href="{{ asset('uploaded') }}/media/{{ $image }}" target="_blank"><div class="media-item" style="background-image: url('{{ asset('uploaded') }}/media/{{ $image }}');"></div></a>
 					</div>
 					<?php } ?>
 				@endforeach

@@ -17,7 +17,7 @@
 				<div class="col-md-8">
 					<div class="list-group">
 						<div class="">
-							<img class="img" src="{{ url('resources/uploaded') }}/thumb-{{ $post->image }}" alt="">
+							<img class="img" src="{{ asset('uploaded') }}/thumb-{{ $post->image }}" alt="">
 							<div class="w-100 justify-content-between">
 								<h5 class="mb-1"><b>{{ $post->title }}</b></h5>
 								<small>{{ date('d M Y',strtotime($post->published)) }}</small>

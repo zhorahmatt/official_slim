@@ -90,7 +90,7 @@
 								@foreach ($users as $user)	
 									<li class="list-group-item">
 										<a href class="thumb-sm m-r" style="vertical-align: middle;">
-											<div style="background: #eee url({{ url('resources/uploaded').'/thumb-'.$user->image }}) no-repeat center; background-size: cover; width: 40px; height: 40px; border-radius: 50%;"></div>
+											<div style="background: #eee url({{ asset('uploaded').'/thumb-'.$user->image }}) no-repeat center; background-size: cover; width: 40px; height: 40px; border-radius: 50%;"></div>
 										</a>
 										<span class="pull-right label bg-{{ $user->status == 'Super Admin' || $user->status == 'Admin' ? 'primary' : 'light' }} inline m-t-sm">{{ $user->status }}</span>
 										<a href>{{ $user->fullname }}</a>

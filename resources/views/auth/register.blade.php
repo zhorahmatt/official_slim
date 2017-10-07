@@ -5,13 +5,13 @@
 	<title>CMS Media SAKTI</title>
 	<meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<link rel="stylesheet" href="{{ url('resources') }}/assets/admin/libs/assets/animate.css/animate.css" type="text/css" />
-	<link rel="stylesheet" href="{{ url('resources') }}/assets/admin/libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
-	<link rel="stylesheet" href="{{ url('resources') }}/assets/admin/libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
-	<link rel="stylesheet" href="{{ url('resources') }}/assets/admin/libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('assets') }}/admin/libs/assets/animate.css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('assets') }}/admin/libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('assets') }}/admin/libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('assets') }}/admin/libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
 
-	<link rel="stylesheet" href="{{ url('resources') }}/assets/admin/css/font.css" type="text/css" />
-	<link rel="stylesheet" href="{{ url('resources') }}/assets/admin/css/app.css" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/font.css" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/app.css" type="text/css" />
 
 </head>
 <body>
@@ -64,14 +64,14 @@
 		</div>
 	</div>
 
-<script src="{{ url('resources') }}/assets/admin/libs/jquery/jquery/dist/jquery.js"></script>
-<script src="{{ url('resources') }}/assets/admin/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
-<script src="{{ url('resources') }}/assets/admin/js/ui-load.js"></script>
-<script src="{{ url('resources') }}/assets/admin/js/ui-jp.config.js"></script>
-<script src="{{ url('resources') }}/assets/admin/js/ui-jp.js"></script>
-<script src="{{ url('resources') }}/assets/admin/js/ui-nav.js"></script>
-<script src="{{ url('resources') }}/assets/admin/js/ui-toggle.js"></script>
-<script src="{{ url('resources') }}/assets/admin/js/ui-client.js"></script>
+<script src="{{ asset('assets') }}/admin/libs/jquery/jquery/dist/jquery.js"></script>
+<script src="{{ asset('assets') }}/admin/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="{{ asset('assets') }}/admin/js/ui-load.js"></script>
+<script src="{{ asset('assets') }}/admin/js/ui-jp.config.js"></script>
+<script src="{{ asset('assets') }}/admin/js/ui-jp.js"></script>
+<script src="{{ asset('assets') }}/admin/js/ui-nav.js"></script>
+<script src="{{ asset('assets') }}/admin/js/ui-toggle.js"></script>
+<script src="{{ asset('assets') }}/admin/js/ui-client.js"></script>
 
 </body>
 </html>
