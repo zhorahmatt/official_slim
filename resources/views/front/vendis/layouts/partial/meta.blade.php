@@ -13,8 +13,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Vendis</title>
-<!-- 
-<link rel="icon" sizes="16x16" href="{{ asset('assets') }}/" /> -->
+
+<link rel="icon" sizes="16x16" href="{{ asset('uploaded').'/'.$setting->favicon }}/" />
 
 <!-- Font Icon -->
 <link rel="stylesheet" href="{{ asset('assets') }}/front/vendis/libs/font-icons/entypo/css/entypo.css">
