@@ -18,7 +18,7 @@
 					@foreach ($posts as $post)
 						<div class="list-group">
 							<a href="{{ route('front_blog_detail', ['slug' => $post->slug ]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
-								<img class="img" src="{{ url('resources/uploaded') }}/thumb-{{ $post->image }}" alt="">
+								<img class="img" src="{{ asset('uploaded') }}/thumb-{{ $post->image }}" alt="">
 								<div class="w-100 justify-content-between">
 									<h5 class="mb-1"><b>{{ $post->title }}</b></h5>
 									<small>{{ date('d M Y',strtotime($post->published)) }}</small>

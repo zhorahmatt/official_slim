@@ -24,11 +24,11 @@
 		$name = sha1(microtime()) . "." . $extension;
 
 		// Save file in the uploads folder.
-		move_uploaded_file($_FILES["file"]["tmp_name"], getcwd() . "/resources/uploaded/" . $name);
+		move_uploaded_file($_FILES["file"]["tmp_name"], getcwd() . "/uploaded".'/'.$name);
 
 		// Generate response.
 		$response = new StdClass;
-		$response->link = "/resources/uploaded/" . $name;
+		$response->link = "/uploaded".'/'.$name;
 		echo stripslashes(json_encode($response));
 	}
 ?>

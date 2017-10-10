@@ -1,1 +1,1 @@
-<script src="{{ url('resources') }}/assets/front/vendis/js/vendis.js"></script>
+<script src="{{ asset('assets') }}/front/vendis/js/vendis.js"></script>

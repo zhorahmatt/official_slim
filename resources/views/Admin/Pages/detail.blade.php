@@ -21,7 +21,7 @@
 							</div>
 						</div>
 						<div>
-							<img src="{{ url('resources/uploaded') }}/{{ $pages->image }}" class="img-full">
+							<img src="{{ asset('uploaded') }}/{{ $pages->image }}" class="img-full">
 						</div>
 						<div class="wrapper-lg">
 							<h2 class="m-t-none"><a href="{{ route('pages_detail', ['slug' => $pages->slug ]) }}">{{ $pages->title }}</a></h2>
@@ -43,7 +43,7 @@
 					@foreach ($recent->slice(0,5) as $r)	
 						<div>
 							<a class="pull-left thumb thumb-wrapper m-r">
-								<img src="{{ url('resources/uploaded') }}/{{ $r->image }}">
+								<img src="{{ asset('uploaded') }}/{{ $r->image }}">
 							</a>
 							<div class="clear">                        
 								<a href="{{ route('pages_detail', ['slug' => $r->slug ]) }}" class="font-semibold text-ellipsis">{{ $r->title }}</a>

@@ -61,7 +61,7 @@
 							<div class="form-group">
 								<label>Featured image</label>
 								@if ($setting->og_image != '')
-									<img src="{{ url('resources/uploaded').'/thumb-'.$setting->og_image }}" width="100%">
+									<img src="{{ asset('uploaded').'/thumb-'.$setting->og_image }}" width="100%">
 								@endif
 								<input type="file" name="og_image[]" class="form-control" accept=".jpg, .jpeg, .png">
 							</div>
@@ -72,7 +72,7 @@
 								<label>Logo (50px * 50px)</label>
 								@if ($setting->logo != '')
 									<br>
-									<img src="{{ url('resources/uploaded').'/thumb-'.$setting->logo }}" width="50px">
+									<img src="{{ asset('uploaded').'/thumb-'.$setting->logo }}" width="50px">
 									<br>
 									<br>
 								@endif
@@ -85,7 +85,7 @@
 								<label>Favicon (16px * 16px)</label>
 								@if ($setting->favicon != '')
 									<br>
-									<img src="{{ url('resources/uploaded').'/thumb-'.$setting->favicon }}" width="16px">
+									<img src="{{ asset('uploaded').'/thumb-'.$setting->favicon }}" width="16px">
 									<br>
 									<br>
 								@endif

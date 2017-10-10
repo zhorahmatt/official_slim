@@ -88,6 +88,16 @@ Route::group(['namespace' => 'Admin'], function () {
 			Route::post('/delete', 'PortfolioController@delete')->name('portfolio_delete');
 		});
 
+		//Testimonials
+		Route::group(['prefix' => '/testimonials'], function(){
+			Route::get('/', 'TestimonialsController@index')->name('testimonials');
+			Route::get('/create', 'TestimonialsController@create')->name('testimonials_create');
+			Route::post('/store', 'TestimonialsController@store')->name('testimonials_store');
+			Route::get('/edit/{id?}', 'TestimonialsController@edit')->name('testimonials_edit');
+			Route::put('/update/{id?}', 'TestimonialsController@update')->name('testimonials_update');
+			Route::post('/delete', 'TestimonialsController@delete')->name('testimonials_delete');
+		});
+
 		//Posts
 		Route::group(['prefix' => '/posts'], function(){
 			Route::get('/', 'PostsController@index')->name('posts');

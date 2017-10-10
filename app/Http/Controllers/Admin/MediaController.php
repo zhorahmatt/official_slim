@@ -17,10 +17,10 @@ class MediaController extends Controller
 	{
 		GlobalClass::Roleback(['Customer Service']);
 
-		if (!file_exists(resource_path('uploaded/media'))) {
-			mkdir(resource_path('uploaded/media'), 0777, true);
+		if (!file_exists(public_path('uploaded/media'))) {
+			mkdir(public_path('uploaded/media'), 0777, true);
 		}
-		$dir = resource_path('uploaded/media');
+		$dir = public_path('uploaded/media');
 		$files = scandir($dir);
 
 		// List Var
@@ -57,7 +57,7 @@ class MediaController extends Controller
 		GlobalClass::Roleback(['Customer Service']);
 
 		// Upload Image
-		$destination = resource_path('uploaded/media');
+		$destination = public_path('uploaded/media');
 		$image_arr = GlobalClass::Upload($r->file('file'), $destination, 700);
 		$image = implode(',',$image_arr);
 	
@@ -68,10 +68,10 @@ class MediaController extends Controller
 	{
 		GlobalClass::Roleback(['Customer Service']);
 		
-		if (!file_exists(resource_path('uploaded/media'))) {
-			mkdir(resource_path('uploaded/media'), 0777, true);
+		if (!file_exists(public_path('uploaded/media'))) {
+			mkdir(public_path('uploaded/media'), 0777, true);
 		}
-		$dir = resource_path('uploaded/media');
+		$dir = public_path('uploaded/media');
 		$files = scandir($dir);
 
 		$image = Array();
@@ -90,8 +90,8 @@ class MediaController extends Controller
 
 		for ($j=0; $j < count($image); $j++) {
 			$image_json[$j] = Array(
-					'url'	=> url('resources/uploaded/media').'/'.$image[$j],
-					'thumb'	=> url('resources/uploaded/media').'/thumb-'.$image[$j]
+					'url'	=> asset('uploaded/media').'/'.$image[$j],
+					'thumb'	=> asset('uploaded/media').'/thumb-'.$image[$j]
 				);
 		}
 
@@ -104,8 +104,8 @@ class MediaController extends Controller
 		
 		$image = str_replace('thumb-', '', $r->name);
 		// Delete Image
-		unlink(resource_path('uploaded/media').'/'.$image);
-		unlink(resource_path('uploaded/media').'/thumb-'.$image);
+		unlink(public_path('uploaded/media').'/'.$image);
+		unlink(public_path('uploaded/media').'/thumb-'.$image);
 		
 		return redirect(route('media'));
 	}

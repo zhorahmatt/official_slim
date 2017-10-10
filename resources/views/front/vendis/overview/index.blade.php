@@ -25,25 +25,25 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-3 item">
-							<img src="{{ url('resources') }}/assets/front/vendis/img/icons/work-1.png" alt="">
+							<img src="{{ asset('assets') }}/front/vendis/img/icons/work-1.png" alt="">
 							<h3>FMCG</h3>
 							<p>Beat Planning, Secondary Sales and Visual Merchandising across GT, MT and HORECA</p>
 						</div>
 
 						<div class="col-md-3 item">
-							<img src="{{ url('resources') }}/assets/front/vendis/img/icons/work-2.png" alt="">
+							<img src="{{ asset('assets') }}/front/vendis/img/icons/work-2.png" alt="">
 							<h3>Pharmaceutical</h3>
 							<p>Secondary Sales, Competitory Reporting and Representations</p>
 						</div>
 
 						<div class="col-md-3 item">
-							<img src="{{ url('resources') }}/assets/front/vendis/img/icons/work-3.png" alt="">
+							<img src="{{ asset('assets') }}/front/vendis/img/icons/work-3.png" alt="">
 							<h3>Consumer Durables</h3>
 							<p>Visual Merchandising, Secondary Sales and Tertiary Sales</p>
 						</div>
 
 						<div class="col-md-3 item">
-							<img src="{{ url('resources') }}/assets/front/vendis/img/icons/work-4.png" alt="">
+							<img src="{{ asset('assets') }}/front/vendis/img/icons/work-4.png" alt="">
 							<h3>Apparel Retail</h3>
 							<p>Visual Merchandizing and Scheduled VM Rollouts</p>
 						</div>

@@ -8,7 +8,7 @@
 				<div class="dropdown wrapper">
 					<a href="app.page.profile">
 						<span class="thumb-lg w-auto-folded avatar m-t-sm">
-							<img src="{{ url('resources/uploaded').'/thumb-'.Auth::user()->image }}" class="img-full" alt="...">
+							<img src="{{ asset('uploaded').'/thumb-'.Auth::user()->image }}" class="img-full" alt="...">
 						</span>
 					</a>
 					<a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded">
@@ -123,6 +123,15 @@
 						<a href="{{ route('portfolio') }}">
 							<i class="icon-grid"></i>
 							<span>Portfolio</span>
+						</a>
+					</li>
+					@endif
+
+					@if ($status == 'Super Admin' OR $status == 'Admin')
+					<li {{ Request::is('admin/testimonials*') ? 'class=active' : '' }}>
+						<a href="{{ route('testimonials') }}">
+							<i class="icon-grid"></i>
+							<span>Testimonials</span>
 						</a>
 					</li>
 					@endif

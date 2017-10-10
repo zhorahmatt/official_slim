@@ -67,7 +67,7 @@
 						<button class="btn btn-default" data-toggle="modal" data-target="#modal-edit" data-id="{{ $e->id }}" data-name="{{ $e->name }}" data-position="{{ $e->position }}" data-image="{{ $e->image }}"><i class="icon-pencil"></i></button>
 						<button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" data-id="{{ $e->id }}" data-name="{{ $e->name }}" data-position="{{ $e->position }}" data-image="{{ $e->image }}"><i class="icon-close"></i></button>
 					</div>
-					<div style="background: #ccc url({{ url('resources/uploaded') }}/{{ $e->image }}) no-repeat center; -webkit-background-size: cover; background-size: cover;padding-bottom: 100%"></div>
+					<div style="background: #ccc url({{ asset('uploaded') }}/{{ $e->image }}) no-repeat center; -webkit-background-size: cover; background-size: cover;padding-bottom: 100%"></div>
 					<h4><b>{{ $e->name }}</b></h4>
 					<h5>{{ $e->position }}</h5>
 				</div>

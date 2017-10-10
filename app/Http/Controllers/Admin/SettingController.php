@@ -67,11 +67,11 @@ class SettingController extends Controller
 		if ( $r->hasFile('og_image') ) {
 			// Remove Old Image
 			$old = DB::table('setting')->first();
-			@unlink(resource_path('uploaded').'/'.$old->og_image);
-			@unlink(resource_path('uploaded').'/thumb-'.$old->og_image);
+			@unlink(public_path('uploaded').'/'.$old->og_image);
+			@unlink(public_path('uploaded').'/thumb-'.$old->og_image);
 
 			// Prepare for upload
-			$destination = resource_path('uploaded');
+			$destination = public_path('uploaded');
 			$og_image_arr = GlobalClass::Upload($r->file('og_image'), $destination, 500);
 			$og_image = implode(',',$og_image_arr);
 			
@@ -84,11 +84,11 @@ class SettingController extends Controller
 		if ( $r->hasFile('favicon') ) {
 			// Remove Old Image
 			$old = DB::table('setting')->first();
-			@unlink(resource_path('uploaded').'/'.$old->favicon);
-			@unlink(resource_path('uploaded').'/thumb-'.$old->favicon);
+			@unlink(public_path('uploaded').'/'.$old->favicon);
+			@unlink(public_path('uploaded').'/thumb-'.$old->favicon);
 
 			// Prepare for upload
-			$destination = resource_path('uploaded');
+			$destination = public_path('uploaded');
 			$favicon_arr = GlobalClass::Upload($r->file('favicon'), $destination, 16);
 			$favicon = implode(',',$favicon_arr);
 			
@@ -101,11 +101,11 @@ class SettingController extends Controller
 		if ( $r->hasFile('logo') ) {
 			// Remove Old Image
 			$old = DB::table('setting')->first();
-			@unlink(resource_path('uploaded').'/'.$old->logo);
-			@unlink(resource_path('uploaded').'/thumb-'.$old->logo);
+			@unlink(public_path('uploaded').'/'.$old->logo);
+			@unlink(public_path('uploaded').'/thumb-'.$old->logo);
 
 			// Prepare for upload
-			$destination = resource_path('uploaded');
+			$destination = public_path('uploaded');
 			$logo_arr = GlobalClass::Upload($r->file('logo'), $destination, 50);
 			$logo = implode(',',$logo_arr);
 			

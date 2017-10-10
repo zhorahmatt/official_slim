@@ -9,7 +9,7 @@
 				<div class="wrapper-lg bg-white-opacity">
 					<div class="row m-t">
 						<div class="col-sm-7">
-							<div href class="thumb-lg pull-left m-r" style="background: url({{ url('resources/uploaded').'/thumb-'.$team->image }}) center no-repeat; background-size: cover; width: 96px; height: 96px; border-radius: 50%"></div>
+							<div href class="thumb-lg pull-left m-r" style="background: url({{ asset('uploaded').'/thumb-'.$team->image }}) center no-repeat; background-size: cover; width: 96px; height: 96px; border-radius: 50%"></div>
 							<div class="clear m-b">
 								<div class="m-b m-t-sm">
 									<span class="h3 text-black">{{ $team->fullname }}</span>
