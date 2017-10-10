@@ -17,7 +17,7 @@ class CreatePagesSlideTable extends Migration
 			$table->increments('id');
 			$table->integer('sort');
 			$table->string('title', 200);
-			$table->string('desc', 200);
+			$table->text('desc');
 			$table->text('image');
 			$table->text('link')->nullable();
 			$table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));

@@ -8551,6 +8551,14 @@ section.featured .featured-3 img {
 section.featured .featured-3 h3 {
   margin-top: 50px;
 }
+section.featured .featured-custom {
+  padding-top: 75px;
+  padding-bottom: 75px;
+  background: #f5f5f5;
+}
+section.featured .featured-custom img {
+  height: 120px;
+}
 
 section.testimonials {
   padding-top: 125px;
@@ -8560,9 +8568,6 @@ section.testimonials {
 section.testimonials .title {
   font-size: 46px;
   margin-bottom: 40px;
-}
-section.testimonials .carousel {
-  height: 100px;
 }
 section.testimonials .carousel .quote {
   font-family: Georgia;

@@ -43,42 +43,48 @@
 		<div class="container">
 			<h2 class="title">Works Accross Business Verticals</h2>
 			<div class="row">
-				<div class="col-md-3 item">
+				<div class="col col-xs-12 item">
 					<img src="{{ url('resources') }}/assets/front/vendis/img/icons/work-1.png" alt="">
-					<h3>FMCG</h3>
-					<p>Beat Planning, Secondary Sales and Visual Merchandising across GT, MT and HORECA</p>
+					<h3>Sales Force</h3>
+					<p>Across GT, MT and HORECA</p>
 				</div>
 
-				<div class="col-md-3 item">
+				<div class="col col-xs-12 item">
 					<img src="{{ url('resources') }}/assets/front/vendis/img/icons/work-2.png" alt="">
-					<h3>Pharmaceutical</h3>
-					<p>Secondary Sales, Competitory Reporting and Representations</p>
+					<h3>Merchandising</h3>
+					<p>Visual Check, Stock Level, Expiry dates, Active Products</p>
 				</div>
 
-				<div class="col-md-3 item">
+				<div class="col col-xs-12 item">
 					<img src="{{ url('resources') }}/assets/front/vendis/img/icons/work-3.png" alt="">
-					<h3>Consumer Durables</h3>
-					<p>Visual Merchandising, Secondary Sales and Tertiary Sales</p>
+					<h3>Field Service</h3>
+					<p>Manage Schedule, WO Assignment & Monitoring</p>
 				</div>
 
-				<div class="col-md-3 item">
+				<div class="col col-xs-12 item">
 					<img src="{{ url('resources') }}/assets/front/vendis/img/icons/work-4.png" alt="">
-					<h3>Apparel Retail</h3>
-					<p>Visual Merchandizing and Scheduled VM Rollouts</p>
+					<h3>Logistics</h3>
+					<p>Deliveries vs. Projects Status and Tracking</p>
+				</div>
+
+				<div class="col col-xs-12 item">
+					<img src="{{ url('resources') }}/assets/front/vendis/img/icons/work-4.png" alt="">
+					<h3>Asset Management</h3>
+					<p>CheckIn/CheckOut of Asset, Monitoring and Tracking</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<section class="featured">
-		<div class="featured-1">
+		<div class="featured-custom">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 text-center">
 						<img src="{{ url('resources') }}/assets/front/vendis/img/featured/featured-1.png" alt="">
 					</div>
 					<div class="col-md-6">
-						<h3 class="color-vendis">Embedded Analytics</h3>
+						<h3 class="color-vendis">Microsoft Dynamics Integrated</h3>
 						<p>Vendis offers insightful analytics within the single sign-on environment of the portal and the mobile app. This actionable intelligence is delivered through an enterprise class business intelligence platform.</p>
 						<a href="" class="btn bg-vendis border-0">Learn More</a>
 					</div>
@@ -101,7 +107,7 @@
 			</div>
 		</div>
 
-		<div class="featured-3">
+		<div class="featured-custom">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 text-center">
@@ -119,29 +125,47 @@
 
 	<section class="testimonials">
 		<div class="container">
-			<h2 class="title">Client Speak</h2>
+			<h2 class="title">Our Customers</h2>
 
 			<div id="carousel-testimonials" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<div class="quote">Vendis is a great combination of latest technology and business process expertise.</div>
-						<div class="client">
-							<b>Mark Salzone, VP Sales</b>
-							<br>New York, USA based Distributor of Consumer Goods
+						<div class="row">
+							<div class="col-md-4">
+								<img src="{{ url('resources') }}/assets/front/vendis/img/customer/total.png" alt="" width="100%">
+							</div>
+							<div class="col-md-4">
+								<img src="{{ url('resources') }}/assets/front/vendis/img/customer/suntory1.gif" alt="" width="100%">
+							</div>
+							<div class="col-md-4">
+								<img src="{{ url('resources') }}/assets/front/vendis/img/customer/bolt4g.jpg" alt="" width="100%">
+							</div>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<div class="quote">I knew that Vendis won an award for its user interface, but using it myself was a breeze. Truly full of pleasant surprises.</div>
-						<div class="client">
-							<b>Davinder Singh, GM Sales</b>
-							<br>India Based FMCG Company
+						<div class="row">
+							<div class="col-md-4">
+								<img src="{{ url('resources') }}/assets/front/vendis/img/customer/total.png" alt="" width="100%">
+							</div>
+							<div class="col-md-4">
+								<img src="{{ url('resources') }}/assets/front/vendis/img/customer/suntory1.gif" alt="" width="100%">
+							</div>
+							<div class="col-md-4">
+								<img src="{{ url('resources') }}/assets/front/vendis/img/customer/bolt4g.jpg" alt="" width="100%">
+							</div>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<div class="quote">Vendis has brought a culture of transparency, meritocracy and excellence in our organization</div>
-						<div class="client">
-							<b>Siddharth Chaudhary, Owner</b>
-							<br>India Based FMCG Company
+						<div class="row">
+							<div class="col-md-4">
+								<img src="{{ url('resources') }}/assets/front/vendis/img/customer/total.png" alt="" width="100%">
+							</div>
+							<div class="col-md-4">
+								<img src="{{ url('resources') }}/assets/front/vendis/img/customer/suntory1.gif" alt="" width="100%">
+							</div>
+							<div class="col-md-4">
+								<img src="{{ url('resources') }}/assets/front/vendis/img/customer/bolt4g.jpg" alt="" width="100%">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -161,4 +185,5 @@
 			</div>
 		</div>
 	</section>
+
 @endsection
