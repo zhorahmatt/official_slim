@@ -33,6 +33,10 @@ class HomeController extends Controller
 		$slideshow = DB::table('pages_slide')->get();
 		$data['slideshow'] = $slideshow;
 
+		// Slideshow
+		$testimonials = DB::table('testimonials')->get();
+		$data['testimonials'] = $testimonials;
+
 		// Relation Posts with Users
 		$portfolio = DB::table('pages_work')->orderBy('created_at', 'DESC')->limit(3)->get();
 		$data['portfolios'] = $portfolio;

@@ -52,6 +52,8 @@
                 </label>
             </div>
 
+            <br>
+
             <button type="submit" class="btn btn-lg btn-primary btn-block">Log in</button>
             <div class="text-center m-t m-b"><a href="{{ route('password.request') }}">Forgot password?</a></div>
         </form>

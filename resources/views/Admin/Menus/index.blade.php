@@ -112,9 +112,6 @@
 								<option value="/blog">Blog</option>
 								<option value="/portfolio">Portfolio</option>
 								<option value="/contact">Contact</option>
-								<option value="/pricing">Pricing</option>
-								<option value="/faqs">FAQS</option>
-								<option value="/overview">OVERVIEW</option>
 								@foreach ($url_pages as $page)
 									<option value="/page/{{ $page->slug }}">{{ $page->slug }}</option>
 								@endforeach

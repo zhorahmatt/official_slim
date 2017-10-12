@@ -33,7 +33,7 @@ var jp_config = {
                       '/assets/admin/libs/jquery/bower-jvectormap/jquery-jvectormap-us-aea-en.js',
                       '/assets/admin/libs/jquery/bower-jvectormap/jquery-jvectormap.css'],
   footable:       [   '/assets/admin/libs/jquery/footable/v3/js/footable.min.js',
-                          '/assets/admin/libs/jquery/footable/v3/css/footable.bootstrap.min.css'],
+                      '/assets/admin/libs/jquery/footable/v3/css/footable.bootstrap.min.css'],
   fullcalendar:   [   '/assets/admin/libs/jquery/moment/moment.js',
                       '/assets/admin/libs/jquery/fullcalendar/dist/fullcalendar.min.js',
                       '/assets/admin/libs/jquery/fullcalendar/dist/fullcalendar.css',

@@ -19,8 +19,8 @@ class CreatePostsTable extends Migration
 			$table->text('slug');
 			$table->text('title');
 			$table->longText('content');
-			$table->string('keyword', 250);
-			$table->text('image');
+			$table->string('keyword', 250)->nullable();
+			$table->text('image')->nullable();
 			$table->string('category', 20);
 			$table->enum('comment', ['0', '1']);
 			$table->enum('status', ['publish', 'schedule', 'draft', 'hidden']);

@@ -16,8 +16,8 @@ class CreateTestimonialsTable extends Migration
          Schema::create('testimonials', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 150);
-            $table->string('position', 200);
-            $table->longText('message');
+            $table->string('position', 200)->nullable();
+            $table->longText('message')->nullable();
             $table->text('image');
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

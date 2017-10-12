@@ -54,7 +54,7 @@
 						<div class="col-md-4 col-sm-6">
 							<div class="form-group">
 								<label>Link</label>
-								<input type="text" name="link" class="form-control" placeholder="Link Portfolio" value="{!! old('portfolio') !!}">
+								<input type="text" name="link" class="form-control" placeholder="Link Slide" value="{!! old('portfolio') !!}">
 							</div>
 						</div>
 					</div>

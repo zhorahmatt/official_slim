@@ -32,8 +32,6 @@ class TestimonialsController extends Controller
     	// Validation Store
 		$this->validate($r,[
 			'name'=>'required',
-			'position'=>'required',
-			'message'=>'required',
 			'image'=>'required'
 		]);
 
@@ -85,9 +83,7 @@ class TestimonialsController extends Controller
 		
     	// Validation Update
 		$this->validate($r,[
-			'name'=>'required',
-			'message'=>'required',
-			'position'=>'required'
+			'name'=>'required'
 		]);
 
 		$testimonials = Testimonials::find($id);

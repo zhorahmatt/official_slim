@@ -7,14 +7,12 @@
 @section('contents')
 	<section class="page-title">
 		<div class="container">
-			<h1>Pages</h1>
+			<h1>{{ $page->title }}</h1>
 		</div>
 	</section>
 
 	<section class="contact">
 		<div class="container">
-			<h2>{{ $page->title }}</h2>
-
 			<?php echo $page->content ?>
 		</div>
 	</section>

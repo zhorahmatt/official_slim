@@ -36,9 +36,7 @@ class PagesController extends Controller
 		// Validation Store
 		$this->validate($r,[
 			'title'=>'required',
-			'content'=>'required',
-			'keyword'=>'required',
-			'image'=>'required'
+			'content'=>'required'
 		]);
 
 		// Make Slug
@@ -49,24 +47,27 @@ class PagesController extends Controller
 
 		$pages = new Pages();
 
-		// Upload Image
-		$destination = public_path('uploaded');
-		$image_arr = GlobalClass::Upload($r->file('image'), $destination, 700);
-		$image = implode(',',$image_arr);
-		
-		// Make copies to media
-		if (!file_exists(public_path('uploaded/media'))) {
-			mkdir(public_path('uploaded/media'), 0777, true);
+		if ($r->image != null) {
+			// Upload Image
+			$destination = public_path('uploaded');
+			$image_arr = GlobalClass::Upload($r->file('image'), $destination, 700);
+			$image = implode(',',$image_arr);
+			
+			// Make copies to media
+			if (!file_exists(public_path('uploaded/media'))) {
+				mkdir(public_path('uploaded/media'), 0777, true);
+			}
+			copy(public_path('uploaded').'/'.$image, public_path('uploaded/media').'/'.$image);
+			copy(public_path('uploaded').'/thumb-'.$image, public_path('uploaded/media').'/thumb-'.$image);
+			
+			$pages->image = $image;
 		}
-		copy(public_path('uploaded').'/'.$image, public_path('uploaded/media').'/'.$image);
-		copy(public_path('uploaded').'/thumb-'.$image, public_path('uploaded/media').'/thumb-'.$image);
 
 		$pages->id_user = $r->id_user;
 		$pages->slug = $count ? "{$slug}-{$count}" : $slug;
 		$pages->title = $r->title;
 		$pages->content = $r->content;
 		$pages->keyword = $r->keyword;
-		$pages->image = $image;
 		$pages->save();
 
 		// Success Message  
@@ -98,8 +99,7 @@ class PagesController extends Controller
 		// Validation Update
 		$this->validate($r,[
 			'title'=>'required',
-			'content'=>'required',
-			'keyword'=>'required'
+			'content'=>'required'
 		]);
 
 		// Make Slug

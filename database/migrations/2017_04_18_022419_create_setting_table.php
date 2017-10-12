@@ -19,7 +19,7 @@ class CreateSettingTable extends Migration
 			$table->string('meta_keyword', 250);
 			$table->string('timezone', 30);
 			$table->string('email', 120);
-			$table->string('phone', 15);
+			$table->string('phone', 25);
 			$table->string('address', 250);
 			$table->enum('maintenance', ['0', '1']);
 			$table->text('logo');
