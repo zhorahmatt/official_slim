@@ -11,7 +11,7 @@ body {
 	font-size: 14px;
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.42857143;
-	color: #58666e;
+	color: #ce2433;
 	background-color: transparent;
 }
 
@@ -138,7 +138,7 @@ a:hover .caret-white {
 }
 
 .progress-bar-primary {
-	background-color: #7266ba;
+	background-color: #f11c1c;
 }
 
 .progress-bar-info {
@@ -1579,7 +1579,7 @@ html.bg {
 }
 
 .arrow.top.arrow-primary:after {
-	border-bottom-color: #7266ba;
+	border-bottom-color: #f11c1c;
 }
 
 .arrow.top.arrow-info:after {
@@ -1626,7 +1626,7 @@ html.bg {
 }
 
 .arrow.right.arrow-primary:after {
-	border-left-color: #7266ba;
+	border-left-color: #f11c1c;
 }
 
 .arrow.right.arrow-info:after {
@@ -1673,7 +1673,7 @@ html.bg {
 }
 
 .arrow.bottom.arrow-primary:after {
-	border-top-color: #7266ba;
+	border-top-color: #f11c1c;
 }
 
 .arrow.bottom.arrow-info:after {
@@ -1720,7 +1720,7 @@ html.bg {
 }
 
 .arrow.left.arrow-primary:after {
-	border-right-color: #7266ba;
+	border-right-color: #f11c1c;
 }
 
 .arrow.left.arrow-info:after {
@@ -1836,8 +1836,8 @@ fieldset[disabled] .btn-default.active {
 
 .btn-primary {
 	color: #ffffff !important;
-	background-color: #7266ba;
-	border-color: #7266ba;
+	background-color: #f11c1c;
+	border-color: #f11c1c;
 }
 
 .btn-primary:hover,
@@ -1846,8 +1846,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
 	color: #ffffff !important;
-	background-color: #6254b2;
-	border-color: #5a4daa;
+	background-color: #f11c1c;
+	border-color: #f11c1c;
 }
 
 .btn-primary:active,
@@ -1871,8 +1871,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-	background-color: #7266ba;
-	border-color: #7266ba;
+	background-color: #f11c1c;
+	border-color: #f11c1c;
 }
 
 .btn-success {
@@ -3205,7 +3205,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-primary {
 	color: #f4f3f9;
-	background-color: #7266ba;
+	background-color: #f11c1c;
 }
 
 .bg-primary.lt,
@@ -3230,7 +3230,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-primary.bg,
 .bg-primary .bg {
-	background-color: #7266ba;
+	background-color: #f11c1c;
 }
 
 .bg-primary a {
@@ -3772,7 +3772,7 @@ a.text-primary:hover {
 }
 
 .text-primary {
-	color: #7266ba;
+	color: #f11c1c;
 }
 
 .text-primary-lt {
@@ -4289,7 +4289,7 @@ a.text-#000000:hover {
 }
 
 .b-primary {
-	border-color: #7266ba;
+	border-color: #f11c1c;
 }
 
 .b-success {
@@ -4329,7 +4329,7 @@ a.text-#000000:hover {
 }
 
 .b-l-primary {
-	border-left-color: #7266ba;
+	border-left-color: #f11c1c;
 }
 
 .b-l-success {
@@ -5173,10 +5173,10 @@ a.text-#000000:hover {
 		background-color: #fad733;
 	}
 	66.66% {
-		background-color: #7266ba;
+		background-color: #f11c1c;
 	}
 	99.9% {
-		background-color: #7266ba;
+		background-color: #f11c1c;
 	}
 }
 
@@ -5194,10 +5194,10 @@ a.text-#000000:hover {
 		background-color: #fad733;
 	}
 	66.66% {
-		background-color: #7266ba;
+		background-color: #f11c1c;
 	}
 	99.9% {
-		background-color: #7266ba;
+		background-color: #f11c1c;
 	}
 }
 
@@ -5215,10 +5215,10 @@ a.text-#000000:hover {
 		background-color: #fad733;
 	}
 	66.66% {
-		background-color: #7266ba;
+		background-color: #f11c1c;
 	}
 	99.9% {
-		background-color: #7266ba;
+		background-color: #f11c1c;
 	}
 }
 

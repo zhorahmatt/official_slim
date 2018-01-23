@@ -2,7 +2,7 @@
 <html lang="en" class="">
 <head>
     <meta charset="utf-8" />
-    <title>CMS Media SAKTI</title>
+    <title>Admin</title>
     <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="{{ url('resources') }}/assets/admin/libs/assets/animate.css/animate.css" type="text/css" />
@@ -19,7 +19,7 @@
     
 
 <div class="container w-xl w-auto-xs">
-    <a href class="navbar-brand block m-t">CMS Media SAKTI</a>
+    <a href class="navbar-brand block m-t">Admin</a>
     <div class="m-b-lg">
         <div class="wrapper text-center">
             <strong>Input your email to reset your password</strong>
@@ -53,7 +53,7 @@
     </div>
     <div class="text-center">
         <p>
-            <small class="text-muted">CMS from Media SAKTI<br>&copy; 2017</small>
+            <small class="text-muted">Admin<br>&copy; 2017</small>
         </p>
     </div>
 </div>

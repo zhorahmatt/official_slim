@@ -59,7 +59,6 @@ class PagesController extends Controller
 			}
 			copy(public_path('uploaded').'/'.$image, public_path('uploaded/media').'/'.$image);
 			copy(public_path('uploaded').'/thumb-'.$image, public_path('uploaded/media').'/thumb-'.$image);
-			
 			$pages->image = $image;
 		}
 

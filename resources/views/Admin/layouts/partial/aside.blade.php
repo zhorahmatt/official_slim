@@ -4,7 +4,7 @@
 	<div class="aside-wrap">
 		<div class="navi-wrap">
 			<!-- user -->
-			<div class="clearfix hidden-xs text-center hide" id="aside-user">
+			{{--  <div class="clearfix hidden-xs text-center hide" id="aside-user">
 				<div class="dropdown wrapper">
 					<a href="app.page.profile">
 						<span class="thumb-lg w-auto-folded avatar m-t-sm">
@@ -46,7 +46,7 @@
 					<!-- / dropdown -->
 				</div>
 				<div class="line dk hidden-folded"></div>
-			</div>
+			</div>  --}}
 			<!-- / user -->
 
 			<!-- nav -->
@@ -56,7 +56,7 @@
 						<span>Main Menus</span>
 					</li>
 					<li>
-						<a href="{{ route('front_home') }}" target="_blank">
+						<a href="{{ route('slim') }}" target="_blank">
 							<i class="icon-screen-desktop text-warning"></i>
 							<span>View this site</span>
 						</a>
@@ -79,6 +79,15 @@
 							@endif
 							<i class="glyphicon glyphicon-envelope icon text-info-lter"></i>
 							<span>Messages</span>
+						</a>
+					</li>
+					@endif
+
+					@if ($status == 'Super Admin' OR $status == 'Admin')
+					<li {{ Request::is('admin/subscribers*') ? 'class=active' : '' }}>
+						<a href="{{ route('subscribers') }}">
+							<i class="icon-paper-plane"></i>
+							<span>Subscribers</span>
 						</a>
 					</li>
 					@endif
@@ -122,7 +131,7 @@
 					<li {{ Request::is('admin/portfolio*') ? 'class=active' : '' }}>
 						<a href="{{ route('portfolio') }}">
 							<i class="icon-grid"></i>
-							<span>Portfolio</span>
+							<span>Galery</span>
 						</a>
 					</li>
 					@endif
@@ -130,7 +139,7 @@
 					@if ($status == 'Super Admin' OR $status == 'Admin')
 					<li {{ Request::is('admin/testimonials*') ? 'class=active' : '' }}>
 						<a href="{{ route('testimonials') }}">
-							<i class="icon-grid"></i>
+							<i class="icon-check"></i>
 							<span>Testimonials</span>
 						</a>
 					</li>
@@ -141,6 +150,12 @@
 						<a href="{{ route('posts') }}">
 							<i class="icon-note"></i>
 							<span>Posts</span>
+						</a>
+					</li>
+					<li {{ Request::is('admin/tautan*') ? 'class=active' : '' }}>
+						<a href="{{ route('tautan') }}">
+							<i class="icon-link"></i>
+							<span>Linked URL</span>
 						</a>
 					</li>
 					@endif

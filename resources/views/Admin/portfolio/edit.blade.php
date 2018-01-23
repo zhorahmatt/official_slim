@@ -1,10 +1,10 @@
 @extends('admin.layouts.main')
 
-@section('title', 'Portfolio Edit')
+@section('title', 'Galery Edit')
 	
 @section('contents')
 	<div class="bg-light lter b-b wrapper-md">
-		<h1 class="m-n font-thin h3">Edit Portfolio</h1>
+		<h1 class="m-n font-thin h3">Edit Galery</h1>
 	</div>
 	<div class="wrapper-md">
 
@@ -42,8 +42,8 @@
 							</div>
 
 							<div class="form-group">
-								<label>Tag</label><br>
-								<input ui-jq="tagsinput" ui-options="" name="tag" class="form-control input-lg" value="{{ $portfolio->tag }}" />
+								<label>Album</label><br>
+								<input name="tag" class="form-control input-lg" value="{{ $portfolio->tag }}" />
 							</div>
 						</div>
 					</div>

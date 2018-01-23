@@ -2,7 +2,7 @@
 <html lang="en" class="">
 <head>
 	<meta charset="utf-8" />
-	<title>CMS Media SAKTI</title>
+	<title>Admin</title>
 	<meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<link rel="stylesheet" href="{{ asset('assets') }}/admin/libs/assets/animate.css/animate.css" type="text/css" />
@@ -17,7 +17,7 @@
 <body>
 	<div class="app app-header-fixed">
 		<div class="container w-xxl w-auto-xs" ng-controller="SignupFormController" ng-init="app.settings.container = false;">
-			<a href class="navbar-brand block m-t">CMS Media Sakti</a>
+			<a href class="navbar-brand block m-t">Admin</a>
 			<div class="m-b-lg">
 				<div class="wrapper text-center">
 					<strong>Sign up to find interesting thing</strong>
@@ -58,7 +58,7 @@
 			</div>
 			<div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
 				<p>
-					<small class="text-muted">CMS from Media SAKTI<br>&copy; 2017</small>
+					<small class="text-muted">Admin<br>&copy; 2017</small>
 				</p>
 			</div>
 		</div>

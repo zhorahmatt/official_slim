@@ -106,7 +106,7 @@ class SettingController extends Controller
 
 			// Prepare for upload
 			$destination = public_path('uploaded');
-			$logo_arr = GlobalClass::Upload($r->file('logo'), $destination, 50);
+			$logo_arr = GlobalClass::Upload($r->file('logo'), $destination, 200);
 			$logo = implode(',',$logo_arr);
 			
 			// Save DB

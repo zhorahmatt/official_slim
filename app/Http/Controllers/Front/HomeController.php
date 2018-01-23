@@ -19,7 +19,7 @@ class HomeController extends Controller
 
 		// Default Var
 		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
+		$data['nav'] = DB::table('menus')->select(DB::raw('*, SUBSTRING(menu_title, 1, 1) as menu_right'))->orderBy('sort')->get();
 		$data['menus'] = DB::table('menus')->where('url', '/')->first();
 		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
 		
@@ -33,18 +33,25 @@ class HomeController extends Controller
 		$slideshow = DB::table('pages_slide')->get();
 		$data['slideshow'] = $slideshow;
 
-		// Slideshow
-		$testimonials = DB::table('testimonials')->get();
-		$data['testimonials'] = $testimonials;
+		// Posts
+		$post = DB::table('posts')
+					->where('deleted_at', null)
+					->where('published', '!=', null)
+					->orderBy('created_at', 'DESC')
+					->take(3)
+					->get();
+		$data['posts'] = $post;
 
-		// Relation Posts with Users
-		$portfolio = DB::table('pages_work')->orderBy('created_at', 'DESC')->limit(3)->get();
-		$data['portfolios'] = $portfolio;
+		// Sambutan
+		$sambutan = DB::table('pages')
+					->where('title', '@Sambutan')
+					->first();
+		$data['sambutan'] = $sambutan;
 
 		// Visitors Count
-        $data['visitors_count'] = DB::table('visitors')->count();
+		$data['visitors_count'] = DB::table('visitors')->count();
 
-		return view('front.vendis.home.index', $data);
+		return view('front.kejari.home.index', $data);
 	}
 
 	public function about()
@@ -57,7 +64,7 @@ class HomeController extends Controller
 
 		// Default Var
 		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
+		$data['nav'] = DB::table('menus')->select(DB::raw('*, SUBSTRING(menu_title, 1, 1) as menu_right'))->orderBy('sort')->get();
 		$data['menus'] = DB::table('menus')->where('url', '/about')->first();
 		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
 
@@ -68,10 +75,13 @@ class HomeController extends Controller
 		$data['teams'] = DB::table('pages_about_team')->get();
 		$data['team_count'] = DB::table('pages_about_team')->count();
 
-		return view('front.vendis.about.index', $data);
+		// Recent Posts
+		$data['recent_posts'] = Posts::where('deleted_at', null)->take(5)->get();
+
+		return view('front.kejari.about.index', $data);
 	}
 
-	public function portfolio()
+	public function galery()
 	{
 		// Maintenance mode
 		$setting = DB::table('setting')->first();
@@ -81,18 +91,18 @@ class HomeController extends Controller
 
 		// Default Var
 		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
+		$data['nav'] = DB::table('menus')->select(DB::raw('*, SUBSTRING(menu_title, 1, 1) as menu_right'))->orderBy('sort')->get();
 		$data['menus'] = DB::table('menus')->where('url', '/portfolio')->first();
 		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
 
 		// Relation Posts with Users
-		$portfolio = DB::table('pages_work')->orderBy('created_at', 'DESC')->paginate(10);
+		$portfolio = DB::table('pages_work')->select('title', 'image', 'tag', DB::raw('count(tag) as count'))->groupBy('tag')->paginate(20);
 		$data['portfolios'] = $portfolio;
 
-		return view('front.vendis.portfolio.index', $data);
+		return view('front.kejari.portfolio.index', $data);
 	}
 
-	public function portfolioDetail($id)
+	public function galeryDetail($tag)
 	{
 		// Maintenance mode
 		$setting = DB::table('setting')->first();
@@ -102,15 +112,15 @@ class HomeController extends Controller
 
 		// Default Var
 		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
+		$data['nav'] = DB::table('menus')->select(DB::raw('*, SUBSTRING(menu_title, 1, 1) as menu_right'))->orderBy('sort')->get();
 		$data['menus'] = DB::table('menus')->where('url', '/portfolio')->first();
 		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
 
 		// Relation Posts with Users
-		$portfolio = DB::table('pages_work')->where('id', $id)->orderBy('created_at', 'DESC')->first();
-		$data['portfolio'] = $portfolio;
+		$portfolio = DB::table('pages_work')->where('tag', str_replace('_', ' ', $tag))->orderBy('created_at', 'DESC')->get();
+		$data['portfolios'] = $portfolio;
 
-		return view('front.vendis.portfolio.detail', $data);
+		return view('front.kejari.portfolio.detail', $data);
 	}
 
 	public function blog()
@@ -123,27 +133,50 @@ class HomeController extends Controller
 
 		// Default Var
 		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
+		$data['nav'] = DB::table('menus')->select(DB::raw('*, SUBSTRING(menu_title, 1, 1) as menu_right'))->orderBy('sort')->get();
 		$data['menus'] = DB::table('menus')->where('url', '/blog')->first();
 		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
 
 		// Relation Posts with Users
 		$posts = DB::table('posts')
 			->join('users', 'posts.id_user', '=', 'users.id')
-			->select('posts.*', 'users.fullname')
+			->select('posts.*', 'users.fullname', 'users.image as photo')
 			->where('posts.deleted_at', null)
 			->where('posts.published', '!=', null)
 			->orderBy('created_at', 'DESC');
 		$data['posts'] = $posts->paginate(10);
 
-		// Recent Posts
-		$data['recent_posts'] = Posts::where('deleted_at', null)->take(5)->get();
+		return view('front.kejari.blog.index', $data);
+	}
 
-		// Category
-		$category = DB::table('posts')->select('category', DB::raw('COUNT(category) as count'))->groupBy('category')->where('deleted_at', null)->orderBy('category')->get();
-		$data['categories'] = $category;
+	public function blogCategory($category)
+	{
+		// Maintenance mode
+		$setting = DB::table('setting')->first();
+		if ($setting->maintenance == '1') {
+			return redirect(route('maintenance'));
+		}
 
-		return view('front.vendis.blog.index', $data);
+		// Default Var
+		$data['setting'] = $setting;
+		$data['nav'] = DB::table('menus')->select(DB::raw('*, SUBSTRING(menu_title, 1, 1) as menu_right'))->orderBy('sort')->get();
+		$data['menus'] = DB::table('menus')->where('url', '/blog')->first();
+		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
+
+		// Relation Posts with Users
+		$category = ucwords(str_replace('-', ' ', $category));
+		$posts = DB::table('posts')
+			->join('users', 'posts.id_user', '=', 'users.id')
+			->select('posts.*', 'users.fullname', 'users.image as photo')
+			->where('posts.deleted_at', null)
+			->where('posts.published', '!=', null)
+			->where('posts.category', $category)
+			->orderBy('created_at', 'DESC');
+		$data['posts'] = $posts->paginate(10);
+
+		$data['category'] = $category;
+
+		return view('front.kejari.blog.index', $data);
 	}
 
 	public function blogDetail($slug)
@@ -156,14 +189,14 @@ class HomeController extends Controller
 
 		// Default Var
 		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
+		$data['nav'] = DB::table('menus')->select(DB::raw('*, SUBSTRING(menu_title, 1, 1) as menu_right'))->orderBy('sort')->get();
 		$data['menus'] = DB::table('menus')->where('url', '/blog')->first();
 		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
 		
 		// Relation Posts with Users
 		$posts = DB::table('posts')
 			->join('users', 'posts.id_user', '=', 'users.id')
-			->select('posts.*', 'users.fullname')
+			->select('posts.*', 'users.fullname', 'users.image as photo')
 			->where('posts.deleted_at', null)
 			->where('posts.published', '!=', null)
 			->orderBy('created_at', 'DESC');
@@ -172,11 +205,7 @@ class HomeController extends Controller
 		// Recent Posts
 		$data['recent_posts'] = Posts::where('slug', '!=', $slug)->where('deleted_at', null)->take(5)->get();
 
-		// Category
-		$category = DB::table('posts')->select('category', DB::raw('COUNT(category) as count'))->groupBy('category')->where('deleted_at', null)->orderBy('category')->get();
-		$data['categories'] = $category;
-
-		return view('front.vendis.blog.detail', $data);
+		return view('front.kejari.blog.detail', $data);
 	}
 
 	public function pages($slug)
@@ -189,7 +218,7 @@ class HomeController extends Controller
 
 		// Default Var
 		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
+		$data['nav'] = DB::table('menus')->select(DB::raw('*, SUBSTRING(menu_title, 1, 1) as menu_right'))->orderBy('sort')->get();
 		
 		// Get Data Page
 		$pages = DB::table('pages')
@@ -201,58 +230,10 @@ class HomeController extends Controller
 		$data['menus'] = DB::table('menus')->where('url', '/page/'.$pages->slug)->first();
 		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
 
-		return view('front.vendis.pages.index', $data);
-	}
+		// Recent Posts
+		$data['recent_posts'] = Posts::where('deleted_at', null)->take(5)->get();
 
-	public function pricing()
-	{
-		// Maintenance mode
-		$setting = DB::table('setting')->first();
-		if ($setting->maintenance == '1') {
-			return redirect(route('maintenance'));
-		}
-
-		// Default Var
-		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
-		$data['menus'] = DB::table('menus')->where('url', '/blog')->first();
-		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
-
-		return view('front.vendis.pricing.index', $data);
-	}
-
-	public function faqs()
-	{
-		// Maintenance mode
-		$setting = DB::table('setting')->first();
-		if ($setting->maintenance == '1') {
-			return redirect(route('maintenance'));
-		}
-
-		// Default Var
-		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
-		$data['menus'] = DB::table('menus')->where('url', '/blog')->first();
-		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
-
-		return view('front.vendis.faqs.index', $data);
-	}
-
-	public function overview()
-	{
-		// Maintenance mode
-		$setting = DB::table('setting')->first();
-		if ($setting->maintenance == '1') {
-			return redirect(route('maintenance'));
-		}
-
-		// Default Var
-		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
-		$data['menus'] = DB::table('menus')->where('url', '/blog')->first();
-		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
-
-		return view('front.vendis.overview.index', $data);
+		return view('front.kejari.pages.index', $data);
 	}
 
 	public function contact()
@@ -265,11 +246,11 @@ class HomeController extends Controller
 
 		// Default Var
 		$data['setting'] = $setting;
-		$data['nav'] = DB::table('menus')->orderBy('sort')->get();
+		$data['nav'] = DB::table('menus')->select(DB::raw('*, SUBSTRING(menu_title, 1, 1) as menu_right'))->orderBy('sort')->get();
 		$data['menus'] = DB::table('menus')->where('url', '/contact')->first();
 		$data['subs'] = DB::table('menus')->select('parent')->where('parent', '!=', '0')->get();
 		
-		return view('front.vendis.contact.index', $data);
+		return view('front.kejari.contact.index', $data);
 	}
 
 	public function contactSubmit(Request $r)
@@ -296,7 +277,7 @@ class HomeController extends Controller
 			]);
 
 		// Success Message  
-		$r->session()->flash('success', 'Your message successfully send to us. We will reply your message less than 24 hour.');
+		$r->session()->flash('success', 'Pesan Anda berhasil terkirim');
 
 		return redirect(route('front_contact'));
 	}

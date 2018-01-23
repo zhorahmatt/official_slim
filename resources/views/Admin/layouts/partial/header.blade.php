@@ -9,8 +9,7 @@
 		</button>
 		<!-- brand -->
 		<a href="#/" class="navbar-brand text-lt">
-			<i class="fa fa-btc"></i>
-			<span class="hidden-folded m-l-xs">Back End</span>
+			<span class="hidden-folded m-l-xs">Dashoard</span>
 		</a>
 		<!-- / brand -->
 	</div>
@@ -24,14 +23,14 @@
 				<i class="fa fa-dedent fa-fw text"></i>
 				<i class="fa fa-indent fa-fw text-active"></i>
 			</a>
-			<a href="#" class="btn no-shadow navbar-btn" ui-toggle-class="show" target="#aside-user">
+			{{--  <a href="#" class="btn no-shadow navbar-btn" ui-toggle-class="show" target="#aside-user">
 				<i class="icon-user fa-fw"></i>
-			</a>
+			</a>  --}}
 		</div>
 		<!-- / buttons -->
 
 		<!-- search form -->
-		<form class="navbar-form navbar-form-sm navbar-left shift" role="search" action="page_search.html">
+		{{--  <form class="navbar-form navbar-form-sm navbar-left shift" role="search" action="page_search.html">
 			<div class="form-group">
 				<div class="input-group">
 					<input type="text" class="form-control input-sm bg-light no-border rounded padder" placeholder="Search...">
@@ -40,12 +39,12 @@
 					</span>
 				</div>
 			</div>
-		</form>
+		</form>  --}}
 		<!-- / search form -->
 
 		<!-- nabar right -->
 		<ul class="nav navbar-nav navbar-right">
-			<li class="dropdown">
+			{{--  <li class="dropdown">
 				<a href="#" data-toggle="dropdown" class="dropdown-toggle">
 					<i class="icon-bell fa-fw"></i>
 					<span class="visible-xs-inline">Notifications</span>
@@ -81,7 +80,7 @@
 					</div>
 				</div>
 				<!-- / dropdown -->
-			</li>
+			</li>  --}}
 
 			<li class="dropdown">
 				<a href="#" data-toggle="dropdown" class="dropdown-toggle clear" data-toggle="dropdown">

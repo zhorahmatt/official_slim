@@ -1,11 +1,11 @@
 @extends('admin.layouts.main')
 
-@section('title', 'Portfolio Create')
+@section('title', 'Galery Create')
 	
 @section('contents')
 	<div class="bg-light lter b-b wrapper-md">
-		<h1 class="m-n font-thin h3">New Portfolio</h1>
-		<small class="text-muted">With portfolio, users will feel closer to your business.</small>
+		<h1 class="m-n font-thin h3">New Galery</h1>
+		<small class="text-muted">With galery, users will feel closer to your business.</small>
 	</div>
 	<div class="wrapper-md">
 
@@ -42,8 +42,8 @@
 							</div>
 
 							<div class="form-group">
-								<label>Tag</label><br>
-								<input ui-jq="tagsinput" ui-options="" name="tag" class="form-control input-lg" value="{!! old('tag') !!}" />
+								<label>Album</label><br>
+								<input name="tag" class="form-control input-lg" value="{!! old('tag') !!}" />
 							</div>
 						</div>
 					</div>

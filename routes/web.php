@@ -17,17 +17,15 @@ Route::group(['namespace' => 'Front'], function () {
 	Route::get('/503', 'HomeController@maintenance')->name('maintenance');
 });
 
-Route::group(['namespace' => 'Front'], function () {
+Route::group(['namespace' => 'Front','prefix' => 'kejari'], function () {
 	Route::get('/', 'HomeController@index')->name('front_home');
 	Route::get('/about', 'HomeController@about')->name('front_about');
-	Route::get('/portfolio', 'HomeController@portfolio')->name('front_portfolio');
-	Route::get('/portfolio/{slug?}', 'HomeController@portfolioDetail')->name('front_portfolio_detail');
+	Route::get('/galery', 'HomeController@galery')->name('front_galery');
+	Route::get('/galery/{tag?}', 'HomeController@galeryDetail')->name('front_galery_detail');
 	Route::get('/blog', 'HomeController@blog')->name('front_blog');
+	Route::get('/blog/category/{category?}', 'HomeController@blogCategory')->name('front_blog_category');
 	Route::get('/blog/{slug?}', 'HomeController@blogDetail')->name('front_blog_detail');
 	Route::get('/page/{slug?}', 'HomeController@pages')->name('front_pages');
-	Route::get('/pricing', 'HomeController@pricing')->name('front_pricing');
-	Route::get('/faqs', 'HomeController@faqs')->name('front_faqs');
-	Route::get('/overview', 'HomeController@overview')->name('front_overview');
 	Route::get('/contact', 'HomeController@contact')->name('front_contact');
 	Route::post('/contact-submit', 'HomeController@contactSubmit')->name('front_contact_submit');
 });
@@ -47,6 +45,13 @@ Route::group(['namespace' => 'Admin'], function () {
 			Route::post('/delete', 'MessagesController@delete')->name('messages_delete');
 			Route::get('/sent', 'MessagesController@sent')->name('messages_sent');
 			Route::get('/trash', 'MessagesController@trash')->name('messages_trash');
+		});
+
+		//Messages
+		Route::group(['prefix' => '/subscribers'], function(){
+			Route::get('/', 'SubscribersController@index')->name('subscribers');
+			Route::post('/store', 'SubscribersController@store')->name('subscribers_store');
+			Route::post('/delete', 'SubscribersController@delete')->name('subscribers_delete');
 		});
 
 		//Menus
@@ -79,7 +84,7 @@ Route::group(['namespace' => 'Admin'], function () {
 		});
 
 		//Portfolio
-		Route::group(['prefix' => '/portfolio'], function(){
+		Route::group(['prefix' => '/galery'], function(){
 			Route::get('/', 'PortfolioController@index')->name('portfolio');
 			Route::get('/create', 'PortfolioController@create')->name('portfolio_create');
 			Route::post('/store', 'PortfolioController@store')->name('portfolio_store');
@@ -156,5 +161,32 @@ Route::group(['namespace' => 'Admin'], function () {
 		Route::get('/help', function(){
 			return view('admin.help.index');
 		})->name('help');
+
+		//linked_url
+		Route::group(['prefix' => '/tautan'], function(){
+			Route::get('/','UrllinkedController@index')->name('tautan');
+			Route::get('/create', 'UrllinkedController@create')->name('tautan_create');
+			Route::post('/store', 'UrllinkedController@store')->name('tautan_store');
+			Route::get('/{slug?}', 'UrllinkedController@detail')->name('tautan_detail');
+			Route::post('/comment/store', 'UrllinkedController@comment_store')->name('comment_store');
+			Route::get('/category/{category?}', 'UrllinkedController@view_category')->name('tautan_view_category');
+			Route::get('/edit/{id?}', 'UrllinkedController@edit')->name('tautan_edit');
+			Route::put('/update/{id?}', 'UrllinkedController@update')->name('tautan_update');
+			Route::post('/delete', 'UrllinkedController@delete')->name('tautan_delete');
+
+		});
 	});
+});
+
+
+Route::group(['namespace' => 'Slim'], function() {
+	//front
+    Route::get('/', 'HomeController@index')->name('slim');
+    Route::get('/galeri', 'HomeController@showAllGalleri');
+    Route::get('/tentang', 'HomeController@about');
+    Route::get('/kegiatan', 'HomeController@kegiatan');
+	Route::get('/blog','HomeController@blog');
+	Route::get('/blog/category/{category?}', 'HomeController@blogCategory')->name('front_blog_category');
+	Route::get('/blog/{slug?}', 'HomeController@blogDetail')->name('front_blog_detail');
+	Route::get('/page/{slug?}', 'HomeController@pages')->name('front_pages');
 });

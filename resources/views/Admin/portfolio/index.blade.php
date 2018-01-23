@@ -1,12 +1,12 @@
 @extends('admin.layouts.main')
 
-@section('title', 'Portfolio')
+@section('title', 'Galery')
 	
 @section('contents')
-	<a href="{{ route('portfolio_create') }}" class="new-btn" title="New Portfolio"><i class="glyphicon glyphicon-pencil"></i></a>
+	<a href="{{ route('portfolio_create') }}" class="new-btn" title="New Galery"><i class="glyphicon glyphicon-pencil"></i></a>
 
 	<div class="bg-light lter b-b wrapper-md">
-		<h1 class="m-n font-thin h3">Portfolio</h1>
+		<h1 class="m-n font-thin h3">Galery</h1>
 	</div>
 	<div class="wrapper-md">
 
@@ -25,7 +25,8 @@
 				<table class="table table-striped m-b-none">
 					<thead>
 						<tr>
-							<th style="width: 40%">Portfolio Title</th>
+							<th style="width: 30%">Title</th>
+							<th>Album</th>
 							<th colspan="2">View</th>
 							<th>Page Created</th>
 							<th>Last Update</th>
@@ -39,6 +40,7 @@
 								<td>
 									<a href="{{ $p->link }}">{{ $p->title }}</a>
 								</td>
+								<td>{{ $p->tag }}</td>
 								<td style="width: 100px">
 									<div class="progress progress-xs m-t-xs m-b-none">
 										<div class="progress-bar bg-info" data-toggle="tooltip" style="width: {{ $views }}%"></div>
@@ -54,7 +56,7 @@
 							</tr>
 						@empty
 							<tr>
-								<td colspan="6" align="center">No Portfolio, please create a new portfolio</td>
+								<td colspan="6" align="center">No photos in galery, please create a new portfolio</td>
 							</tr>
 						@endforelse
 					</tbody>

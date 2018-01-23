@@ -33,7 +33,6 @@ class PortfolioController extends Controller
 		// Validation Store
 		$this->validate($r,[
 			'title'=>'required',
-			'content'=>'required',
 			'image'=>'required',
 			'tag'=>'required'
 		]);
@@ -96,7 +95,6 @@ class PortfolioController extends Controller
 		// Validation Update
 		$this->validate($r,[
 			'title'=>'required',
-			'content'=>'required',
 			'tag'=>'required'
 		]);
 

@@ -17,10 +17,10 @@ class CreatePagesWorkTable extends Migration
 			$table->increments('id');
 			$table->integer('sort');
 			$table->string('title', 250);
-			$table->longtext('content');
+			$table->longtext('content')->nullable();
 			$table->string('tag', 250);
 			$table->text('image');
-			$table->text('link');
+			$table->text('link')->nullable();
 			$table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
 			$table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 		});

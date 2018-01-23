@@ -110,7 +110,7 @@
 								<option value="/">Home</option>
 								<option value="/about">About</option>
 								<option value="/blog">Blog</option>
-								<option value="/portfolio">Portfolio</option>
+								<option value="/galery">Galery</option>
 								<option value="/contact">Contact</option>
 								@foreach ($url_pages as $page)
 									<option value="/page/{{ $page->slug }}">{{ $page->slug }}</option>

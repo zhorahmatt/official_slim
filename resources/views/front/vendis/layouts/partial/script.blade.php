@@ -1,1 +1,0 @@
-<script src="{{ asset('assets') }}/front/vendis/js/vendis.js"></script>
