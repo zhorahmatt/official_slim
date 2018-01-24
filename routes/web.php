@@ -17,7 +17,7 @@ Route::group(['namespace' => 'Front'], function () {
 	Route::get('/503', 'HomeController@maintenance')->name('maintenance');
 });
 
-Route::group(['namespace' => 'Front','prefix' => 'kejari'], function () {
+/* Route::group(['namespace' => 'Front','prefix' => 'kejari'], function () {
 	Route::get('/', 'HomeController@index')->name('front_home');
 	Route::get('/about', 'HomeController@about')->name('front_about');
 	Route::get('/galery', 'HomeController@galery')->name('front_galery');
@@ -28,7 +28,7 @@ Route::group(['namespace' => 'Front','prefix' => 'kejari'], function () {
 	Route::get('/page/{slug?}', 'HomeController@pages')->name('front_pages');
 	Route::get('/contact', 'HomeController@contact')->name('front_contact');
 	Route::post('/contact-submit', 'HomeController@contactSubmit')->name('front_contact_submit');
-});
+}); */
 
 Route::group(['namespace' => 'Admin'], function () {
 	Route::group(['prefix' => 'admin'], function(){
