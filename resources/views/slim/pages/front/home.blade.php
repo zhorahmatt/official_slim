@@ -17,13 +17,20 @@
                                 <div class="col-sm-10 col-sm-offset-1">
                                     <div class="slider text-center" data-paging="true">
                                         <ul class="slides">
-                                            @foreach ($slideshow as $key => $slide)
-                                            <li> 
-                                                <img alt="Image" src="{{ url('uploaded') }}/{{ $slide->image }}">
-                                                <h5>{{ $slide->title }}</h5>
-                                                {!! $slide->desc !!}
-                                            </li>
-                                            @endforeach
+                                            @if ($slideshow->count() != 0)
+                                                @foreach ($slideshow as $key => $slide)
+                                                    <li> 
+                                                        <img alt="Image" src="{{ url('uploaded') }}/{{ $slide->image }}">
+                                                        <h5>{{ $slide->title }}</h5>
+                                                        {!! $slide->desc !!}
+                                                    </li>
+                                                @endforeach
+                                            @else
+                                                <li> 
+                                                    <img alt="background" src="{{ url('assets/jamselinas') }}/img/slim/background_2.png">
+                                                    <h5>Image Title</h5>
+                                                </li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>

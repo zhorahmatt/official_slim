@@ -57,7 +57,6 @@ class HomeController extends Controller
         //about
         $data['about'] = DB::table('pages_about')->first();
 
-        //return view('front.kejari.home.index', $data);
         return view('slim.pages.front.home', $data);
     }
 

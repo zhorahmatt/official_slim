@@ -1,0 +1,21 @@
+form jamselinas 8 makassar :
+    - kasih fix untuk field yang mau di kasih masuk di form pendaftaran
+    - statistik
+        - total applicant
+        - total by : 
+            - jenis kelamin
+            - kota
+            - komunitas
+            - 
+        - 
+    - email queue yang menggunakan smtp gmail
+    - export to excel
+    - 
+
+official website slim
+    - hilangkan bayang-bayang developer sebelumnya
+    - ada bagian di galleri yang bermasalah
+    - logo slim yang no background yang tampil di device yang lebar
+    - SEO diperhatikan
+    - tambahkan flying item untuk event jamselinas 8 makassar -> redirect ke alamat jamselinas.sepeda
+    - pengisian konten

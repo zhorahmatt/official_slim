@@ -27,7 +27,6 @@ class DashboardController extends Controller
 
         // Get Data Visitor Today
         $data['visitors_detail'] = DB::table('visitors')->select('ip_address', 'country', 'city', DB::raw('sum(hits) as sum'))->groupBy('ip_address', 'country', 'city')->where('date', date('Y-m-d'))->get();
-
     	return view('admin.dashboard.index', $data);
     }
 }
