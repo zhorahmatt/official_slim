@@ -190,3 +190,44 @@ Route::group(['namespace' => 'Slim'], function() {
 	Route::get('/blog/{slug?}', 'HomeController@blogDetail')->name('front_blog_detail');
 	Route::get('/page/{slug?}', 'HomeController@pages')->name('front_pages');
 });
+
+
+//dari blog.dev
+Route::group(['prefix' => ''], function(){
+    Route::get('/', 'JamselinasController@index');
+    Route::get('/register','JamselinasController@daftar');
+    Route::post('/daftar', 'JamselinasController@registrasi');
+
+    Route::group(['prefix' => 'administratif'], function(){
+        Route::get('/{id}/provinsi', 'JamselinasController@allProvinces');
+    });
+
+    Route::get('/testingSendingEmail', function(){
+        // Variable data ini yang berupa array ini akan bisa diakses di dalam "view".
+        $data = ['prize' => 'Peke', 'total' => 3 ];
+        
+        // "emails.hello" adalah nama view.
+        Mail::send('jamselinas.pages.front.email', $data, function ($mail)
+        {
+            // Email dikirimkan ke address "momo@deviluke.com" 
+            // dengan nama penerima "Momo Velia Deviluke"
+            $mail->to('info.rahmathidayat@gmail.com', 'Rahmat');
+
+            // Copy carbon dikirimkan ke address "haruna@sairenji" 
+            // dengan nama penerima "Haruna Sairenji"
+            // $mail->cc('haruna@sairenji', 'Haruna Sairenji');
+
+            $mail->subject('Hello World!');
+        });
+    });
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Dashboard'], function(){
+    Route::get('/', 'AdminController@index');
+});
+
+Route::group(['prefix' => 'jamselinas8'], function() {
+    //
+    Route::get('/', 'JamselinasController@index');
+    Route::get('/daftar' , 'JamselinasController@daftar');
+});

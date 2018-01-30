@@ -1,0 +1,1 @@
+Terima Kasih Telah Mendaftar {{$email}} dan {{$nama}}
