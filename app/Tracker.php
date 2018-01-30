@@ -65,18 +65,18 @@ class Tracker extends Model
 
 
     	// Device Info
-        $type_device = get_browser(null, true);
+        /* $type_device = get_browser(null, true);
 			if ($type_device['ismobiledevice']){
 			    $device = "Mobile";
 			} else {
 			    $device = "Dekstop";
 			}
-
+ */
         static::firstOrCreate([
         		  'ip_address'   => $_SERVER['REMOTE_ADDR'],
         		  'url'          => $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
         		  'browser' 	 => $browser,
-        		  'device'       => $device,
+        		  //'device'       => $device,
         		  'country'      => $country,
         		  'region'       => $region,
         		  'city'         => $city,
