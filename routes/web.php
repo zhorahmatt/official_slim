@@ -181,9 +181,9 @@ Route::group(['namespace' => 'Slim'], function() {
 
 
 //dari blog.dev
-Route::group(['prefix' => ''], function(){
+Route::group(['prefix' => 'sepeda'], function(){
     Route::get('/', 'JamselinasController@index');
-    Route::get('/register','JamselinasController@daftar');
+    Route::get('/register','JamselinasController@daftar_v1');
     Route::post('/daftar', 'JamselinasController@registrasi');
 
     Route::group(['prefix' => 'administratif'], function(){

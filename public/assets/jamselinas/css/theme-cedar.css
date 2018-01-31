@@ -4389,6 +4389,10 @@ hr.short {
   width: 2.78571429em;
   border-color: #c75146;
 }
+hr.long{
+  /* width: 5em; */
+  border-color: #c75146;
+}
 hr[data-title] {
   margin: 2.78571429em 0;
   text-align: center;

@@ -25,6 +25,12 @@ class JamselinasController extends Controller
         return view('jamselinas.pages.front.front')->withProvinsi($provinsi);
     }
 
+    public function daftar_v1()
+    {
+        $provinsi = Provinsi::all();
+        return view('jamselinas.pages.front.form_registrasi_v1')->withProvinsi($provinsi);
+    }
+
     /*
         var :
             - nama,email,tempatlahir,tanggallahir,jenkel,alamat,nohp,komunitas,ukuranbaju,penyakit,nohpkeluarga,hubkeluarga
