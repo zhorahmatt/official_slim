@@ -35,9 +35,9 @@ class JamselinasController extends Controller
         var :
             - nama,email,tempatlahir,tanggallahir,jenkel,alamat,nohp,komunitas,ukuranbaju,penyakit,nohpkeluarga,hubkeluarga
     */
-    public function registrasi(Request $request)
+    public function registrasi_v1(Request $request)
     {
-        $validasi = $request->validate([
+        $this->validate($request,[
             'nama'          => 'required|max:255',
             'email'         => 'required|unique:peserta|email',
             'tempatlahir'   => 'required',
@@ -49,6 +49,92 @@ class JamselinasController extends Controller
         ]);
 
         $peserta = new Peserta;
+
+        $peserta->name = $request->get('nama');
+        $peserta->email = $request->get('email');
+        $peserta->tempatLahir = $request->get('tempatlahir');
+        $peserta->tanggalLahir = $request->get('tanggallahir');
+        $peserta->noHp = $request->get('nohp');
+        $peserta->jk = $request->get('jenkel');
+        $peserta->alamat = $request->get('alamat');
+        $peserta->provinsi = $request->get('provinsi');
+        $peserta->kabupaten = $request->get('kabupaten');
+        $peserta->komunitas = $request->get('komunitas');
+        $peserta->jersey = $request->get('ukuranbaju');
+        $peserta->tglDatang = $request->get('tgldatang');
+        $peserta->emNama = $request->get('emergency_name');
+        $peserta->emKontak = $request->get('emergency_phone');
+        $peserta->golDar = $request->get('goldar');
+
+        //generate nomor peserta -> JAMSELINAS8-0001
+        $lastRegisteredPeserta = Peserta::orderBy('nomorPeserta','desc')->first();
+        if(!$lastRegisteredPeserta){
+            //tidak ada peserta terdaftar, start dari 0001
+            $peserta->nomorPeserta = 'JAMSELINAS8-'.'0001';
+        }else{
+            //potong nomor peserta
+            $getkode = substr($lastRegisteredPeserta->nomorPeserta, (strlen($lastRegisteredPeserta->nomorPeserta) - 4),
+                (strlen($lastRegisteredPeserta->nomorPeserta)));
+            $getkodesum = '000' . ((int)$getkode + 1);
+            $kode =  'JAMSELINAS8-' . substr($getkodesum, (strlen($getkodesum) - 4), strlen($getkodesum));
+            $peserta->nomorPeserta = $kode;
+        }
+
+        //status peserta dan status bayar
+        /* 
+            status peserta 
+                - waiting
+                - aktive
+                - deactive
+            status bayar
+                - waiting / unpaid
+                - paid
+        */
+        $peserta->statusPeserta = 'waiting';
+        $peserta->statusBayar = 'unpaid';
+
+        dd($peserta);
+        if($peserta->save()){
+            
+            //send email to peserta
+            //menggunakan queue laravel
+            $data = ['email' => $peserta->email, 'nama' => $peserta->nama_peserta ];
+            
+            // "emails.hello" adalah nama view.
+            Mail::send('jamselinas.pages.front.email', $data, function ($mail) use ($peserta)
+            {
+                // Email dikirimkan ke address "momo@deviluke.com" 
+                // dengan nama penerima "Momo Velia Deviluke"
+                $mail->to($peserta->email, $peserta->nama_peserta);
+    
+                $mail->subject('Terima Kasih Telah Mendaftar Jamselinas 8 Makassar 2018');
+            });
+            return view('jamselinas.pages.front.success');
+        }
+        //gagal simpan. redirect ke form pendaftaran dengan error
+        dd($peserta, $lastRegisteredPeserta->nomor_peserta, $getkode, $getkodesum, $kode);
+
+    }
+
+    public function registrasi(Request $request)
+    {
+        dd($request);
+        $validasi = $request->validate([
+            'nama'          => 'required|max:255',
+            'email'         => 'required|unique:peserta|email',
+            'tempatlahir'   => 'required',
+            'tanggallahir'  => 'required',
+            'jenkel'        => 'required',
+            'alamat'        => 'required',
+            'nohp'          => 'required',
+            'ukuranbaju'    => 'required',
+            'emergency_name'=> 'required',
+            'emergency_phone' => 'required',
+            'goldar'        => 'required'
+        ]);
+
+        $peserta = new Peserta;
+
         $peserta->nama_peserta = $request->get('nama');
         $peserta->email = $request->get('email');
         $peserta->tempat_lahir = $request->get('tempatlahir');

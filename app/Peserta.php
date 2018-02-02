@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Peserta extends Model
 {
@@ -26,4 +28,7 @@ class Peserta extends Model
         'merk_hp',
         'tipe_hp'
     ];
+    
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 }

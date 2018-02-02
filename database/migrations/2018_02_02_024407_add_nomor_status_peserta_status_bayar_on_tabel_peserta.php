@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFieldNoHpJenisHpOnTablePeserta extends Migration
+class AddNomorStatusPesertaStatusBayarOnTabelPeserta extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,9 @@ class AddFieldNoHpJenisHpOnTablePeserta extends Migration
     public function up()
     {
         Schema::table('peserta', function($table){
-            $table->string('merk_hp')->after('ikutmks');
-            $table->string('tipe_hp')->after('ikutmks');
+            $table->string('nomorPeserta')->after('golDar');
+            $table->string('statusPeserta')->after('golDar');
+            $table->string('statusBayar')->after('golDar');
         });
     }
 
@@ -27,8 +28,9 @@ class AddFieldNoHpJenisHpOnTablePeserta extends Migration
     public function down()
     {
         Schema::table('peserta', function ($table) {
-            $table->dropColumn('merk_hp');
-            $table->dropColumn('tipe_hp');
+            $table->dropColumn('nomorPeserta');
+            $table->dropColumn('statusPeserta');
+            $table->dropColumn('statusBayar');
         });
     }
 }

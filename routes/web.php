@@ -184,7 +184,7 @@ Route::group(['namespace' => 'Slim'], function() {
 Route::group(['prefix' => 'sepeda'], function(){
     Route::get('/', 'JamselinasController@index');
     Route::get('/register','JamselinasController@daftar_v1');
-    Route::post('/daftar', 'JamselinasController@registrasi');
+    Route::post('/daftar', 'JamselinasController@registrasi_v1');
 
     Route::group(['prefix' => 'administratif'], function(){
         Route::get('/{id}/provinsi', 'JamselinasController@allProvinces');
