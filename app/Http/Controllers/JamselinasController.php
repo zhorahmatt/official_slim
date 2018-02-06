@@ -52,7 +52,7 @@ class JamselinasController extends Controller
         $this->validate($request,$this->rules());
         
         $peserta = new Peserta;
-        $peserta->name = $request->get('nama');
+        $peserta->name = $request->get('name');
         $peserta->email = $request->get('email');
         $peserta->tempatLahir = $request->get('tempatlahir');
         $peserta->tanggalLahir = $request->get('tanggallahir');

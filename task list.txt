@@ -1,5 +1,4 @@
 form jamselinas 8 makassar :
-    - kasih fix untuk field yang mau di kasih masuk di form pendaftaran
     - statistik
         - total applicant
         - total by : 
@@ -8,19 +7,9 @@ form jamselinas 8 makassar :
             - komunitas
             - 
         - 
-    - email queue yang menggunakan smtp gmail
+    - email queue yang menggunakan smtp gmail -> menggunakan mailable in controller -> DONE
     - export to excel
-    - 
-
-official website slim
-    - hilangkan bayang-bayang developer sebelumnya
-    - ada bagian di galleri yang bermasalah
-    - logo slim yang no background yang tampil di device yang lebar
-    - SEO diperhatikan
-    - tambahkan flying item untuk event jamselinas 8 makassar -> redirect ke alamat jamselinas.sepeda
-    - pengisian konten
-
-
+    - jangan lupa untuk pke old di view form nya
 ==========================================================================================================
 STEP BY STEP PENGERJAAN FORM PENDAFTARAN PESERTA JAMSELINAS 8 MAKASSAR
 
@@ -71,9 +60,15 @@ OPSI :
             - gagal transfer/terjadi kesalahan
                 - hub. panitia
 
-
-
 ###################################################################
 
-task list untuk form REGISTRASI
-- upload
+
+
+
+official website slim
+    - hilangkan bayang-bayang developer sebelumnya
+    - ada bagian di galleri yang bermasalah
+    - logo slim yang no background yang tampil di device yang lebar
+    - SEO diperhatikan
+    - tambahkan flying item untuk event jamselinas 8 makassar -> redirect ke alamat jamselinas.sepeda
+    - pengisian konten

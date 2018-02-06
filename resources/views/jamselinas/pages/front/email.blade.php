@@ -217,7 +217,7 @@
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
                 <tr>
                     <td style="padding: 100px 0; text-align: center">
-                        <img src="{{ url('assets/jamselinas') }}/img/logojamselinas.jpeg" alt="logo_jamselinas" width="90" height="150">
+                        <img src="{{ url('assets/jamselinas') }}/img/logo_jamselinas.png" alt="logo_jamselinas" width="90" height="150">
                     </td>
                 </tr>
             </table>

@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Document</title>
         <!-- meta -->
         @include('jamselinas.layouts.partials.meta')
-
+        @yield('meta')
+        @yield('title')
         @yield('styles')
     </head>
     <body data-smooth-scroll-offset="77">

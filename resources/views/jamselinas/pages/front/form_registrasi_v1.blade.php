@@ -1,5 +1,10 @@
 @extends('jamselinas.layouts.main')
-
+@section('meta')
+    <meta name="description" content="Form Pendaftaran Jamselinas 8 Makassar 2018">
+@endsection
+@section('title')
+    <title>Jamselinas 8 Makassar - Form Pendaftaran</title>
+@endsection
 @section('content')
     <section class="text-center">
         <!-- <div class="imageblock__content col-md-5 col-sm-4 pos-right">
@@ -20,18 +25,34 @@
                             <div class="col-xs-12">
                                 <h4 align="left">Personal information</h4>
                                 <hr class="long">
-                                <input type="text" required name="nama" placeholder="Nama Lengkap">
+                                <label for="name" class="lbl-input">Nama Lengkap</label>
+                                <input type="text" required name="name" id="name" placeholder="Mario Lawalata" value="{{ old('nam')}}">
                             </div>
-                            <div class="col-xs-12"> <input type="email" name="email" placeholder="Email"> </div>
                             <div class="col-xs-12">
-                                <div class="col-xs-6"> <input type="text" required name="tempatlahir" placeholder="Tempat Lahir"></div>
-                                <div class="col-xs-6"> <input type="date" name="tanggallahir" placeholder="Tanggal Lahir"></div>
+                                <label for="email" class="lbl-input">Email</label>
+                                <input type="email" name="email" placeholder="mario@gmail.com" value="{{ old('email')}}">
                             </div>
                             <div class="col-xs-12">
                                 <div class="col-xs-6">
-                                    <input type="text" required name="nohp" id="nohp" placeholder="Nomor Handphone">
+                                    <label for="tempatlahir" class="lbl-input">Tempat Lahir</label>
+                                    <input type="text" required name="tempatlahir" placeholder="Tempat Lahir" value="{{ old('tempatlahir') }}">
                                 </div>
                                 <div class="col-xs-6">
+                                    <label for="tanggallahir" class="lbl-input">Tanggal Lahir</label>
+                                    <input type="date" name="tanggallahir" placeholder="Tanggal Lahir" value="{{ old('tanggallahir')}}">
+                                </div>
+                            </div>
+                            {{--  <div class="col-xs-12">
+                                <label for="tanggallahir">Tanggal Lahir</label>
+                                <input type="date" name="tanggallahir" id="tanggallahir">
+                            </div>  --}}
+                            <div class="col-xs-12">
+                                <div class="col-xs-6">
+                                    <label for="nohp" class="lbl-input">Nomor Handphone</label>
+                                    <input type="text" required name="nohp" id="nohp" placeholder="Nomor Handphone" value="{{ old('nohp') }}">
+                                </div>
+                                <div class="col-xs-6">
+                                        <label for="jenkel" class="lbl-input">Jenis Kelamin</label>
                                         <select name="jenkel" id="jenkel">
                                             <option value="0">--Pilih Jenis Kelamin--</option>
                                             <option value="1">laki-laki</option>
@@ -43,11 +64,13 @@
                                 <br>
                                 <h4 align="left">Address Information</h4>
                                 <hr class="long">
+                                <label for="alamat" class="lbl-input">Alamat</label>
                                 <textarea name="alamat" id="alamat" cols="10" rows="10" placeholder="Alamat"></textarea>
                                 <!-- <input type="text" required name="alamat" id="alamat" placeholder="Alamat"> -->
                             </div>
                             <div class="col-xs-12">
                                 <div class="col-xs-6">
+                                    <label for="provinsi" class="lbl-input">Provinsi</label>
                                     <select name="provinsi" id="provinsi">
                                         <option value="0">--Provinsi--</option>
                                         @foreach($provinsi as $thisProvinsi)
@@ -56,6 +79,7 @@
                                     </select>
                                 </div>
                                 <div class="col-xs-6">
+                                    <label for="kabupaten" class="lbl-input">Kabupaten</label>
                                     <select name="kabupaten" id="kabupaten">
                                         <option value="0">--Kabupaten--</option>
                                     </select>
@@ -65,9 +89,11 @@
                                 <br>
                                 <h4 align="left">Additional Information</h4>
                                 <hr class="long">
-                                <input type="text" required name="komunitas" id="komunitas" placeholder="Komunitas Sepeda Lipat">
+                                <label for="komunitas" class="lbl-input">Komunitas</label>
+                                <input type="text" required name="komunitas" id="komunitas" placeholder="Komunitas Sepeda Lipat" value="{{ old('komunitas')}}">
                             </div>
                             <div class="col-xs-12">
+                                <label for="ukuranbaju" class="lbl-input">Ukuran jersey</label>
                                 <select name="ukuranbaju" id="ukuranbaju">
                                     <option value="0">Ukuran Baju</option>
                                     <option value="xs">xs</option>
@@ -78,6 +104,7 @@
                                 </select>
                             </div>
                             <div class="col-xs-12">
+                                <label for="tgldatang" class="lbl-input">Perkiraan Tanggal Kedatangan</label>
                                 <select name="tgldatang" id="tgldatang">
                                     <option value="">Perkiraan Tanggal Kedatangan</option>
                                     <option value="">A</option>
@@ -91,12 +118,15 @@
                                 <br>
                                 <h4 align="left">In Case Emergency</h4>
                                 <hr class="long">
-                                <input type="text" name="emergency_name" id="emergency_name" placeholder="Nama Kontak Keluarga" required>
+                                <label for="emergency_name" class="lbl-input">Nama Keluarga</label>
+                                <input type="text" name="emergency_name" id="emergency_name" placeholder="Nama Kontak Keluarga" required value="{{ old('emergency_name')}}">
                             </div>
                             <div class="col-xs-12">
-                                <input type="text" name="emergency_phone" id="emergency_phone" placeholder="Kontak Keluarga" required>
+                                <label for="emergency_phone" class="lbl-input">Kontak Keluarga</label>
+                                <input type="text" name="emergency_phone" id="emergency_phone" placeholder="Kontak Keluarga" required value="{{ old('emergency_phone')}}">
                             </div>
                             <div class="col-xs-12">
+                                <label for="goldar" class="lbl-input">Golongan Darah</label>
                                 <select name="goldar" id="goldar">
                                     <option value="-">Golongan Darah</option>
                                     <option value="a">A</option>
@@ -106,11 +136,11 @@
                                 </select>
                             </div>
                             <div class="col-xs-12">
-                                <label style="float:left" for="asuransi">Kartu BPJS (*Hasil scan berupa jpg,png,jpeg)</label>
+                                <label class="lbl-input" for="asuransi">Scan BPJS(*Max : 500Kb | jpg,png,jpeg,pdf)</label>
                                 <input type="file" name="bpjs" id="bpjs">
                             </div>
                             <div class="col-xs-12">
-                                <label style="float:left" for="ktp">Kartu Tanda Penduduk (*Hasil scan berupa jpg,png,jpeg)</label>
+                                <label class="lbl-input" for="ktp">Scan KTP(*Max : 500Kb | jpg,png,jpeg,pdf)</label>
                                 <input type="file" name="ktp" id="ktp">
                             </div>
                             <div class="col-xs-12"> <button type="submit" class="btn btn--primary">Daftar</button> </div>
@@ -126,7 +156,7 @@
 @section('registeredScript')
     <script type="text/javascript">
         $(document).ready(function(){
-
+            $('.lbl-input').css({'float':'left','font-size':'20'});
             $('#provinsi').on('change',function(){
                 $idProvinsi = $('#provinsi').val();
                 $.ajax({
