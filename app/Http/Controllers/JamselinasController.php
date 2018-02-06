@@ -28,6 +28,15 @@ class JamselinasController extends Controller
             'bpjs'          => 'required|mimes:jpeg,jpg,png,pdf|max:500'
         ];
     }
+
+    public function validateRequest($req)
+    {
+        if(!empty($req)){
+            return $req;
+        }else{
+            return 'nothing';
+        }
+    }
     public function index()
     {
         /* $provinsi = Provinsi::all();
@@ -52,21 +61,21 @@ class JamselinasController extends Controller
         $this->validate($request,$this->rules());
         
         $peserta = new Peserta;
-        $peserta->name = $request->get('name');
-        $peserta->email = $request->get('email');
-        $peserta->tempatLahir = $request->get('tempatlahir');
-        $peserta->tanggalLahir = $request->get('tanggallahir');
-        $peserta->noHp = $request->get('nohp');
-        $peserta->jk = $request->get('jenkel');
-        $peserta->alamat = $request->get('alamat');
-        $peserta->provinsi = $request->get('provinsi');
-        $peserta->kabupaten = $request->get('kabupaten');
-        $peserta->komunitas = $request->get('komunitas');
-        $peserta->jersey = $request->get('ukuranbaju');
-        $peserta->tglDatang = (!empty($request->get('tgldatang'))) ? $request->get('tglDatang') : 'null' ;
-        $peserta->emNama = $request->get('emergency_name');
-        $peserta->emKontak = $request->get('emergency_phone');
-        $peserta->golDar = $request->get('goldar');
+        $peserta->name = $this->validateRequest($request->get('nama'));
+        $peserta->email = $this->validateRequest($request->get('email'));
+        $peserta->tempatLahir = $this->validateRequest($request->get('tempatlahir'));
+        $peserta->tanggalLahir = $this->validateRequest($request->get('tanggallahir'));
+        $peserta->noHp = $this->validateRequest($request->get('nohp'));
+        $peserta->jk = $this->validateRequest($request->get('jenkel'));
+        $peserta->alamat = $this->validateRequest($request->get('alamat'));
+        $peserta->provinsi = $this->validateRequest($request->get('provinsi'));
+        $peserta->kabupaten = $this->validateRequest($request->get('kabupaten'));
+        $peserta->komunitas = $this->validateRequest($request->get('komunitas'));
+        $peserta->jersey = $this->validateRequest($request->get('ukuranbaju'));
+        $peserta->tglDatang = $this->validateRequest($request->get('tglDatang'));
+        $peserta->emNama = $this->validateRequest($request->get('emergency_name'));
+        $peserta->emKontak = $this->validateRequest($request->get('emergency_phone'));
+        $peserta->golDar = $this->validateRequest($request->get('goldar'));
 
         //generate nomor peserta -> JAMSELINAS8-0001
         $lastRegisteredPeserta = Peserta::orderBy('nomorPeserta','desc')->first();
