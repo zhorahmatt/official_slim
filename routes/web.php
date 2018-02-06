@@ -207,7 +207,11 @@ Route::group(['prefix' => 'sepeda'], function(){
 
             $mail->subject('Hello World!');
         });
-    });
+	});
+	
+	Route::get('/email_template', function(){
+		return view('jamselinas.pages.front.email_template');
+	});
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Dashboard'], function(){

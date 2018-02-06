@@ -9,9 +9,25 @@ use App\Kabupaten;
 use App\Kecamatan;
 use App\Kelurahan;
 use Mail;
+use App\Jobs\SendConfirmationEmail;
+use Illuminate\Support\Facades\Input;
 
 class JamselinasController extends Controller
 {
+    public function rules(){
+        return [
+            'nama'          => 'required|max:255',
+            'email'         => 'required|unique:peserta|email',
+            'tempatlahir'   => 'required',
+            'tanggallahir'  => 'required',
+            'jenkel'        => 'required',
+            'alamat'        => 'required',
+            'nohp'          => 'required',
+            'ukuranbaju'    => 'required',
+            'ktp'           => 'required|mimes:jpeg,jpg,png,pdf|max:500',
+            'bpjs'          => 'required|mimes:jpeg,jpg,png,pdf|max:500'
+        ];
+    }
     public function index()
     {
         /* $provinsi = Provinsi::all();
@@ -31,25 +47,11 @@ class JamselinasController extends Controller
         return view('jamselinas.pages.front.form_registrasi_v1')->withProvinsi($provinsi);
     }
 
-    /*
-        var :
-            - nama,email,tempatlahir,tanggallahir,jenkel,alamat,nohp,komunitas,ukuranbaju,penyakit,nohpkeluarga,hubkeluarga
-    */
     public function registrasi_v1(Request $request)
     {
-        $this->validate($request,[
-            'nama'          => 'required|max:255',
-            'email'         => 'required|unique:peserta|email',
-            'tempatlahir'   => 'required',
-            'tanggallahir'  => 'required',
-            'jenkel'        => 'required',
-            'alamat'        => 'required',
-            'nohp'          => 'required',
-            'ukuranbaju'    => 'required',
-        ]);
-
+        $this->validate($request,$this->rules());
+        
         $peserta = new Peserta;
-
         $peserta->name = $request->get('nama');
         $peserta->email = $request->get('email');
         $peserta->tempatLahir = $request->get('tempatlahir');
@@ -61,7 +63,7 @@ class JamselinasController extends Controller
         $peserta->kabupaten = $request->get('kabupaten');
         $peserta->komunitas = $request->get('komunitas');
         $peserta->jersey = $request->get('ukuranbaju');
-        $peserta->tglDatang = $request->get('tgldatang');
+        $peserta->tglDatang = (!empty($request->get('tgldatang'))) ? $request->get('tglDatang') : 'null' ;
         $peserta->emNama = $request->get('emergency_name');
         $peserta->emKontak = $request->get('emergency_phone');
         $peserta->golDar = $request->get('goldar');
@@ -69,17 +71,16 @@ class JamselinasController extends Controller
         //generate nomor peserta -> JAMSELINAS8-0001
         $lastRegisteredPeserta = Peserta::orderBy('nomorPeserta','desc')->first();
         if(!$lastRegisteredPeserta){
-            //tidak ada peserta terdaftar, start dari 0001
             $peserta->nomorPeserta = 'JAMSELINAS8-'.'0001';
+            $peserta->nomorRegistrasi = '0001';
         }else{
-            //potong nomor peserta
             $getkode = substr($lastRegisteredPeserta->nomorPeserta, (strlen($lastRegisteredPeserta->nomorPeserta) - 4),
                 (strlen($lastRegisteredPeserta->nomorPeserta)));
             $getkodesum = '000' . ((int)$getkode + 1);
             $kode =  'JAMSELINAS8-' . substr($getkodesum, (strlen($getkodesum) - 4), strlen($getkodesum));
             $peserta->nomorPeserta = $kode;
+            $peserta->nomorRegistrasi = $getkodesum;
         }
-
         //status peserta dan status bayar
         /* 
             status peserta 
@@ -93,22 +94,35 @@ class JamselinasController extends Controller
         $peserta->statusPeserta = 'waiting';
         $peserta->statusBayar = 'unpaid';
 
-        dd($peserta);
+        if(Input::hasFile('bpjs') || Input::hasFile('ktp')){
+            $tempBpjs = Input::file('bpjs');
+            $tempKtp = Input::file('ktp');
+            $bpjs = 'bpjs'.$peserta->nomorRegistrasi.$peserta->noHp.$tempBpjs->getClientOriginalName();
+            $ktp = 'ktp'.$peserta->nomorRegistrasi.$peserta->noHp.$tempKtp->getClientOriginalName();
+            $tempBpjs->move('assets/jamselinas/img/bpjs', $bpjs);
+            $tempKtp->move('assets/jamselinas/img/ktp', $ktp);
+            $peserta->bpjs = $bpjs;
+            $peserta->ktp = $ktp;
+        }
+
         if($peserta->save()){
-            
             //send email to peserta
             //menggunakan queue laravel
-            $data = ['email' => $peserta->email, 'nama' => $peserta->nama_peserta ];
+            $data = [
+                'email'         => $peserta->email,
+                'nama'          => $peserta->name,
+                'nomorPeserta'  => $peserta->nomorPeserta,
+                'nomorRegistrasi' => $peserta->nomorRegistrasi
+            ];
             
-            // "emails.hello" adalah nama view.
+            // send email via mailable
             Mail::send('jamselinas.pages.front.email', $data, function ($mail) use ($peserta)
             {
-                // Email dikirimkan ke address "momo@deviluke.com" 
-                // dengan nama penerima "Momo Velia Deviluke"
                 $mail->to($peserta->email, $peserta->nama_peserta);
-    
-                $mail->subject('Terima Kasih Telah Mendaftar Jamselinas 8 Makassar 2018');
+                $mail->subject('Informasi Pembayaran Jamselinas 8 Makassar 2018');
             });
+            //send email via queue
+            // $this->dispatch(new SendConfirmationEmail($data));
             return view('jamselinas.pages.front.success');
         }
         //gagal simpan. redirect ke form pendaftaran dengan error

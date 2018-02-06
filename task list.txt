@@ -28,7 +28,7 @@ OPSI :
 1. GOOGLE FORM DENGAN EMBEED KE DOMAIN JAMSELINAS
     - ACTION KE GOOGLE FORM DAN WEB JAMSELINAS
     - GET DATA DARI GOOGLE FORM JIKA TIDAK BERHASIL 2 ACTION DARI GOOGLE FORM
-2. PAKAI FORM SENDIRI
+2. PAKAI FORM SENDIRI -> opsi yang diambil
 3. PENDAFTARAN 1-15 MARET 2018
 4. BATAS AKHIR PEMBAYARAN 20 MARET 2018
 5. MELAKUKAN PENGIRIMAN EMAIL KE MASING-MASING PESERTA TENTANG :
@@ -47,9 +47,33 @@ OPSI :
     - ALAMAT 
     - PROVINSI
     - KABUPATEN
-    - KOMUNITAS 
+    - KOMUNITAS
     - UKURAN BAJU => REQUIRED
     - TANGGAL DATANG 
     - EMERGENCY NAME => REQUIRED
     - EMERGENCY KONTAK => REQUIRED
     - GOL. DARAH => REQUIRED
+8. ALUR PENDAFTARAN PESERTA JAMSELINAS
+    1.peserta mengisi form
+    2.jika :
+        berhasil -> - dikirimkan email untuk pembayaran
+                    - status peserta peserta
+                    - masukkan nomor peserta ke grup whatsapp / kirimkan link group
+                    - set nomor peserta sementara dengan jumlah yang di bayar
+        gagal    -> - poin 1
+    3.peserta bayar ke bank
+      jika
+        berhasil -> - kirim konfirmasi ke panitia
+                 -> set nomor peserta tetap jamselinas
+        gagal karena :
+            - tidak transfer : 
+                - status peserta = batal
+            - gagal transfer/terjadi kesalahan
+                - hub. panitia
+
+
+
+###################################################################
+
+task list untuk form REGISTRASI
+- upload

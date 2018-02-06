@@ -26,7 +26,11 @@ class Peserta extends Model
         'ikutserta',
         'ikutmks',
         'merk_hp',
-        'tipe_hp'
+        'tipe_hp',
+        'nomorPeserta',
+        'nomorRegistrasi',
+        'ktp',
+        'bpjs'
     ];
     
     use SoftDeletes;

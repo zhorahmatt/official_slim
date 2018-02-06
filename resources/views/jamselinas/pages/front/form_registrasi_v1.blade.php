@@ -14,7 +14,7 @@
                     @foreach ($errors->all() as $message)
                         {{ $message }}<br>
                     @endforeach
-                    <form method="post" action="{{ URL('/sepeda/daftar')}}">
+                    <form method="post" action="{{ URL('/sepeda/daftar')}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-xs-12">
@@ -105,6 +105,14 @@
                                     <option value="o">O</option>
                                 </select>
                             </div>
+                            <div class="col-xs-12">
+                                <label style="float:left" for="asuransi">Kartu BPJS (*Hasil scan berupa jpg,png,jpeg)</label>
+                                <input type="file" name="bpjs" id="bpjs">
+                            </div>
+                            <div class="col-xs-12">
+                                <label style="float:left" for="ktp">Kartu Tanda Penduduk (*Hasil scan berupa jpg,png,jpeg)</label>
+                                <input type="file" name="ktp" id="ktp">
+                            </div>
                             <div class="col-xs-12"> <button type="submit" class="btn btn--primary">Daftar</button> </div>
                             
                             <div class="col-xs-12"> <span class="type--fine-print">Dengan mendaftar, anda menyetujui <a href="#">Syarat dan Ketentuan</a></span> </div>
@@ -118,6 +126,7 @@
 @section('registeredScript')
     <script type="text/javascript">
         $(document).ready(function(){
+
             $('#provinsi').on('change',function(){
                 $idProvinsi = $('#provinsi').val();
                 $.ajax({
