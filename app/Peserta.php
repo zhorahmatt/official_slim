@@ -30,7 +30,8 @@ class Peserta extends Model
         'nomorPeserta',
         'nomorRegistrasi',
         'ktp',
-        'bpjs'
+        'bpjs',
+        'riwayat'
     ];
     
     use SoftDeletes;

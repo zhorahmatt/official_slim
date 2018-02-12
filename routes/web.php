@@ -13,11 +13,6 @@
 
 Auth::routes();
 
-Route::group(['namespace' => 'Front'], function () {
-	Route::get('/503', 'HomeController@maintenance')->name('maintenance');
-});
-
-
 Route::group(['namespace' => 'Admin'], function () {
 	Route::group(['prefix' => 'admin'], function(){
 		//Dashboard
@@ -179,39 +174,21 @@ Route::group(['namespace' => 'Slim'], function() {
 	Route::get('/page/{slug?}', 'HomeController@pages')->name('front_pages');
 });
 
-
 //dari blog.dev
 Route::group(['prefix' => 'sepeda'], function(){
     Route::get('/', 'JamselinasController@index');
     Route::get('/register','JamselinasController@daftar_v1');
-    Route::post('/daftar', 'JamselinasController@registrasi_v1');
+	Route::post('/daftar', 'JamselinasController@registrasi_v1');
+	
+	//admin panel
+	Route::group(['prefix' => 'jejak'], function () {
+		Route::get('/list', 'JamselinasController@listPeserta');
+		Route::get('/{id}/ubahstatus', 'JamselinasController@ubahStatusPesertaBayar');
+	});
 
     Route::group(['prefix' => 'administratif'], function(){
         Route::get('/{id}/provinsi', 'JamselinasController@allProvinces');
     });
-
-    Route::get('/testingSendingEmail', function(){
-        // Variable data ini yang berupa array ini akan bisa diakses di dalam "view".
-        $data = ['prize' => 'Peke', 'total' => 3 ];
-        
-        // "emails.hello" adalah nama view.
-        Mail::send('jamselinas.pages.front.email', $data, function ($mail)
-        {
-            // Email dikirimkan ke address "momo@deviluke.com" 
-            // dengan nama penerima "Momo Velia Deviluke"
-            $mail->to('info.rahmathidayat@gmail.com', 'Rahmat');
-
-            // Copy carbon dikirimkan ke address "haruna@sairenji" 
-            // dengan nama penerima "Haruna Sairenji"
-            // $mail->cc('haruna@sairenji', 'Haruna Sairenji');
-
-            $mail->subject('Hello World!');
-        });
-	});
-	
-	Route::get('/email_template', function(){
-		return view('jamselinas.pages.front.email_template');
-	});
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Dashboard'], function(){
@@ -222,4 +199,21 @@ Route::group(['prefix' => 'jamselinas8'], function() {
     //
     Route::get('/', 'JamselinasController@index');
     Route::get('/daftar' , 'JamselinasController@daftar');
+});
+
+//on root domain
+Route::group(['prefix' => ''], function () {
+	Route::get('/', 'JamselinasController@liveShowForm');
+    Route::get('/register','JamselinasController@liveShowForm');
+	Route::post('/daftar', 'JamselinasController@liveSaveForm');
+	
+	//admin panel
+	Route::group(['prefix' => 'jejak'], function () {
+		Route::get('/list', 'JamselinasController@liveListPeserta');
+		Route::get('/{id}/ubahstatus', 'JamselinasController@liveUbahStatusPesertaBayar');
+	});
+
+    Route::group(['prefix' => 'administratif'], function(){
+        Route::get('/{id}/provinsi', 'JamselinasController@liveAllProvinces');
+    });
 });

@@ -72,22 +72,23 @@ class JamselinasController extends Controller
         $peserta->kabupaten = $this->validateRequest($request->get('kabupaten'));
         $peserta->komunitas = $this->validateRequest($request->get('komunitas'));
         $peserta->jersey = $this->validateRequest($request->get('ukuranbaju'));
-        $peserta->tglDatang = $this->validateRequest($request->get('tglDatang'));
+        $peserta->tglDatang = $this->validateRequest($request->get('tgldatang'));
         $peserta->emNama = $this->validateRequest($request->get('emergency_name'));
         $peserta->emKontak = $this->validateRequest($request->get('emergency_phone'));
         $peserta->golDar = $this->validateRequest($request->get('goldar'));
+        $peserta->riwayat = $this->validateRequest($request->get('riwayat'));
 
         //generate nomor peserta -> JAMSELINAS8-0001
-        $lastRegisteredPeserta = Peserta::orderBy('nomorPeserta','desc')->first();
+        $lastRegisteredPeserta = Peserta::orderBy('nomorRegistrasi','desc')->first();
         if(!$lastRegisteredPeserta){
-            $peserta->nomorPeserta = 'JAMSELINAS8-'.'0001';
+            //$peserta->nomorPeserta = 'JAMSELINAS8-'.'0001';
             $peserta->nomorRegistrasi = '0001';
         }else{
             $getkode = substr($lastRegisteredPeserta->nomorPeserta, (strlen($lastRegisteredPeserta->nomorPeserta) - 4),
                 (strlen($lastRegisteredPeserta->nomorPeserta)));
             $getkodesum = '000' . ((int)$getkode + 1);
             $kode =  'JAMSELINAS8-' . substr($getkodesum, (strlen($getkodesum) - 4), strlen($getkodesum));
-            $peserta->nomorPeserta = $kode;
+            //$peserta->nomorPeserta = $kode;
             $peserta->nomorRegistrasi = $getkodesum;
         }
         //status peserta dan status bayar
@@ -219,5 +220,43 @@ class JamselinasController extends Controller
     {
         $kabupaten = Kabupaten::where('province_id', $id)->get();
         return \json_encode($kabupaten);
+    }
+
+    public function listPeserta()
+    {
+        $allPeserta = Peserta::all();
+        return view('jamselinas.pages.front.admin.list')->withPeserta($allPeserta);
+    }
+
+    public function ubahStatusPesertaBayar($id)
+    {
+        $isPeserta = Peserta::find($id);
+        if($isPeserta != null){
+            if($isPeserta->statusBayar == 'unpaid'){
+                $isPeserta->statusBayar = 'paid';
+                $isPeserta->statusPeserta = 'ready';
+                $lastRegisteredPeserta = Peserta::orderBy('nomorPeserta','desc')->first();
+                if(!$lastRegisteredPeserta){
+                    $isPeserta->nomorPeserta = 'JAMSELINAS8-'.'0001';
+                }else{
+                    $getkode = substr($lastRegisteredPeserta->nomorPeserta, (strlen($lastRegisteredPeserta->nomorPeserta) - 4),
+                        (strlen($lastRegisteredPeserta->nomorPeserta)));
+                    $getkodesum = '000' . ((int)$getkode + 1);
+                    $kode =  'JAMSELINAS8-' . substr($getkodesum, (strlen($getkodesum) - 4), strlen($getkodesum));
+                    $isPeserta->nomorPeserta = $kode;
+                }
+                //save to the database
+                if($isPeserta->save()){
+                    //return success message
+                    dd("berhasil");
+                }
+                //failed to update
+                dd("gagal");
+            }
+            //return error message status is paid
+            dd("status paid");
+        }
+        //return error message id is not found
+        dd($isPeserta,'id is not found');
     }
 }

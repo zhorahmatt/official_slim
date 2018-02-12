@@ -42,7 +42,7 @@ OPSI :
     - EMERGENCY NAME => REQUIRED
     - EMERGENCY KONTAK => REQUIRED
     - GOL. DARAH => REQUIRED
-8. ALUR PENDAFTARAN PESERTA JAMSELINAS
+8. ALUR PENDAFTARAN PESERTA JAMSELINAS  
     1.peserta mengisi form
     2.jika :
         berhasil -> - dikirimkan email untuk pembayaran

@@ -240,7 +240,7 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
                                 <td style="padding: 40px 40px 20px; text-align: center;">
-                                    <p>Halo {{ $nama }}</p>
+                                    <p>Halo <strong>{{ $nama }}</strong></p>
                                     <h1 style="margin: 0; font-family: sans-serif; font-size: 24px; line-height: 125%; color: #333333; font-weight: normal;">Terima Kasih Telah Melakukan Pendaftaran Jamselinas 8 Makassar 2018</h1>
                                 </td>
                             </tr>
@@ -254,7 +254,7 @@
                             <tr>
                                 <td style="padding: 0 40px 40px; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555;">
                                     <p>
-                                        <strong>Untuk nomor registrasi silahkan check di <a href="jamsel">waiting list</a></strong>
+                                        <strong>Untuk informasi lebih lengkap, klik <a href="http://bit.ly/2EmSXdP" target="_blank">Tautan</a> ini untuk bergabung di grup telegram jamselinas</strong>
                                     </p>
                                     <p>Biaya registrasi <strong>Rp. 300.000,-</strong> (Tiga Ratus Ribu Rupiah).</p>
                                     <p>Untuk mempermudah verifikasi, silahkan mengganti  3 digit terakhir dengan nomor registrasi anda.</p>
@@ -269,7 +269,7 @@
                             <tr>
                                 <td style="padding: 0 40px 40px; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555;">
                                     <p>Harap melakukan konfirmasi bukti transfer melalui : <br> Email : <strong>jamselinas8mks@gmail.com </strong><br> Subyek :
-                                        <strong>Konfirmasi Pembayaran Jamselinas8 Makassar </strong><br> atau dengan informasi sebagai berikut :
+                                        <strong>Konfirmasi Pembayaran Jamselinas8 Makassar </strong><br>dengan informasi sebagai berikut :
                                         <ul>
                                             <li>Nama Lengkap</li>
                                             <li>Nomor registrasi</li>
@@ -278,16 +278,14 @@
                                             <li>Bukti Transfer(foto)</li>
                                         </ul>
                                     </p>
-                                    <p>Atau dengan mengklik tombol dibawah ini</p>
-                                    <a href="http://www.google.com" style="background: #222222; border: 15px solid #222222; font-family: sans-serif; font-size: 13px; line-height: 110%; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
-                                        <span style="color:#ffffff;" class="button-link">&nbsp;&nbsp;&nbsp;&nbsp;Konfirmasi&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    </a>
+                                    <p><strong>Atau gabung di grup telegram peserta jamselinas (<a href="http://bit.ly/2EmSXdP" target="_blank">Klik Disini</a>) untuk konfirmasi</strong></p>
                                     <p>Batas Akhir pembayaran adalah tanggal 20 Maret 2018</p>
                                     <p>Apabila tidak melakukan pembayaran dan mengonfirmasi, maka pendaftaran dianggap batal.</p>
                                     <p>Info Lebih Lanjut dapat menghubungi panitia : <br>
+                                    Grup Telegram : <a href="http://bit.ly/2EmSXdP" target="_blank">Klik disini untuk bergabung</a><br>
                                     Kontak : <strong>08229448484</strong><br>
-                                    Facebook : <strong>@fawfaefwa</strong><br>
-                                    Instagram : <strong>@dafafa</strong>
+                                    Facebook : <strong>@sepedalipatmakassar</strong><br>
+                                    Instagram : <strong>@sepedalipatmakassar</strong>
                                     </p>
                                     <p>Terima kasih</p>
                                     <p>Sampai Jumpa di kota Daeng</p>

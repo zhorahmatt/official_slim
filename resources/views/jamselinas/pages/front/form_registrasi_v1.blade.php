@@ -25,12 +25,12 @@
                             <div class="col-xs-12">
                                 <h4 align="left">Personal information</h4>
                                 <hr class="long">
-                                <label for="name" class="lbl-input">Nama Lengkap</label>
-                                <input type="text" required name="name" id="name" placeholder="Mario Lawalata" value="{{ old('nam')}}">
+                                <label for="nama" class="lbl-input">Nama Lengkap</label>
+                                <input type="text" required name="nama" id="nama" placeholder="Mario Lawalata" value="{{ old('nam')}}">
                             </div>
                             <div class="col-xs-12">
                                 <label for="email" class="lbl-input">Email</label>
-                                <input type="email" name="email" placeholder="mario@gmail.com" value="{{ old('email')}}">
+                                <input type="email" name="email" placeholder="mario@gmail.com" value="{{ old('email')}}" required>
                             </div>
                             <div class="col-xs-12">
                                 <div class="col-xs-6">
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-xs-6">
                                     <label for="tanggallahir" class="lbl-input">Tanggal Lahir</label>
-                                    <input type="date" name="tanggallahir" placeholder="Tanggal Lahir" value="{{ old('tanggallahir')}}">
+                                    <input type="date" name="tanggallahir" placeholder="Tanggal Lahir" value="{{ old('tanggallahir')}}" required>
                                 </div>
                             </div>
                             {{--  <div class="col-xs-12">
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="col-xs-6">
                                         <label for="jenkel" class="lbl-input">Jenis Kelamin</label>
-                                        <select name="jenkel" id="jenkel">
+                                        <select name="jenkel" id="jenkel" required>
                                             <option value="0">--Pilih Jenis Kelamin--</option>
                                             <option value="1">laki-laki</option>
                                             <option value="2">perempuan</option>
@@ -94,24 +94,24 @@
                             </div>
                             <div class="col-xs-12">
                                 <label for="ukuranbaju" class="lbl-input">Ukuran jersey</label>
-                                <select name="ukuranbaju" id="ukuranbaju">
+                                <select name="ukuranbaju" id="ukuranbaju" required>
                                     <option value="0">Ukuran Baju</option>
-                                    <option value="xs">xs</option>
-                                    <option value="s">s</option>
-                                    <option value="m">m</option>
-                                    <option value="l">l</option>
-                                    <option value="xl">xl</option>
+                                    <option value="s">S (46 cm)</option>
+                                    <option value="m">M (48 cm)</option>
+                                    <option value="l">L (50 cm)</option>
+                                    <option value="xl">XL (52 cm)</option>
+                                    <option value="2xl">2XL (54 cm)</option>
+                                    <option value="3xl">3XL (56 cm)</option>
                                 </select>
                             </div>
                             <div class="col-xs-12">
                                 <label for="tgldatang" class="lbl-input">Perkiraan Tanggal Kedatangan</label>
                                 <select name="tgldatang" id="tgldatang">
                                     <option value="">Perkiraan Tanggal Kedatangan</option>
-                                    <option value="">A</option>
-                                    <option value="">B</option>
-                                    <option value="">C</option>
-                                    <option value="">D</option>
-                                    <option value="">E</option>
+                                    <option value="11">11 September 2018</option>
+                                    <option value="12">12 September 2018</option>
+                                    <option value="13">13 September 2018</option>
+                                    <option value="14">14 September 2018</option>
                                 </select>
                             </div>
                             <div class="col-xs-12">
@@ -134,6 +134,10 @@
                                     <option value="ab">AB</option>
                                     <option value="o">O</option>
                                 </select>
+                            </div>
+                            <div class="col-xs-12">
+                                <label for="riwayat" class="lbl-input">Riwayat Penyakit</label>
+                                <input type="text" name="riwayat" id="riwayat" placeholder="Pisahkan dengan tanda koma jika lebih satu" required>
                             </div>
                             <div class="col-xs-12">
                                 <label class="lbl-input" for="asuransi">Scan BPJS(*Max : 500Kb | jpg,png,jpeg,pdf)</label>
