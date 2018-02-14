@@ -201,6 +201,9 @@ Route::group(['prefix' => 'jamselinas8'], function() {
     Route::get('/daftar' , 'JamselinasController@daftar');
 });
 
+
+/*******************************************************************************************************/
+
 //on root domain
 Route::group(['prefix' => ''], function () {
 	Route::get('/', 'JamselinasController@liveShowForm');
@@ -217,3 +220,6 @@ Route::group(['prefix' => ''], function () {
         Route::get('/{id}/provinsi', 'JamselinasController@liveAllProvinces');
     });
 });
+
+
+/*******************************************************************************************************/

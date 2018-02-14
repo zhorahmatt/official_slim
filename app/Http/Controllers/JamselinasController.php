@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Input;
 
 class JamselinasController extends Controller
 {
+    //request validation
     public function rules(){
         return [
             'nama'          => 'required|max:255',
@@ -29,6 +30,7 @@ class JamselinasController extends Controller
         ];
     }
 
+    //check if request is exist
     public function validateRequest($req)
     {
         if(!empty($req)){
