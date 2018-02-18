@@ -11,13 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
+        /* $this->call(UsersTableSeeder::class);
         $this->call(AboutTableSeeder::class);
-        $this->call(SettingTableSeeder::class);
+		$this->call(SettingTableSeeder::class); */
+		$this->call(GantengTableSeeder::class);
     }
 }
 
-class UsersTableSeeder Extends Seeder
+/* class UsersTableSeeder Extends Seeder
 {
 	public function run()
 	{
@@ -97,6 +98,36 @@ class SettingTableSeeder Extends Seeder
 		];
 
 		DB::table('setting')->insert($data);
+	}
+
+} */
+
+class GantengTableSeeder Extends Seeder
+{
+	public function run()
+	{
+		App\User::truncate();
+
+		$data = [
+			[
+				'fullname'	=> 'Ganteng',
+				'username'	=> 'ganteng',
+				'email'		=> 'ganteng@mail.com',
+				'status'	=> 'Super Admin',
+				'image'		=> '111111.png',
+				'password'	=> bcrypt('sukses123')
+			],
+			[
+				'fullname'	=> 'manis',
+				'username'	=> 'manis',
+				'email' 	=> 'manis@mail.com',
+				'status'	=> 'manis',
+				'image'		=> '111111.png',
+				'password'	=> bcrypt('manis123')
+			]
+		];
+
+		DB::table('ganteng')->insert($data);
 	}
 
 }

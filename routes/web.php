@@ -212,17 +212,34 @@ Route::group(['prefix' => ''], function () {
 	
 	//admin panel
 	Route::group(['prefix' => 'jejak'], function () {
-		Route::get('/list', 'JamselinasController@liveListPeserta');
+		Route::get('/list', 'JamselinasController@liveListPeserta')->name('listJejak');
 		Route::get('/{id}/ubahstatus', 'JamselinasController@liveUbahStatusPesertaBayar');
 	});
 
     Route::group(['prefix' => 'administratif'], function(){
         Route::get('/{id}/provinsi', 'JamselinasController@liveAllProvinces');
 	});
-	
-	/* Route::get('/sukses',function(){
-		return view('jamselinas.pages.front.live.success');
-	}); */
+
+	//tes form login
+	Route::get('/login', 'JamselinasController@formShow');
+	Route::post('/login', 'JamselinasController@formLogin');
+});
+
+Route::get('/tesLogin', function() {
+ 
+    $auth = auth()->guard('manis'); // Atau \Auth::guard('doctor')
+ 
+    $credentials = [
+        'username' =>  'ganteng', // Nomor Induk Pegawai
+        'password' =>  'sukses123',
+    ];
+ 
+    if ($auth->attempt($credentials)) {
+        return 'Yay! Berhasil login (^o^)/';
+    }
+ 
+    return 'Gagal login.';
+ 
 });
 
 

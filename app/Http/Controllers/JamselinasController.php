@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Input;
 
 class JamselinasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['only' => ['liveListPeserta','liveUbahStatusPesertaBayar']]);
+    }
     //request validation
     public function rules(){
         return [
@@ -401,5 +405,22 @@ class JamselinasController extends Controller
     {
         $kabupaten = Kabupaten::where('province_id', $id)->get();
         return \json_encode($kabupaten);
+    }
+
+    public function formShow()
+    {
+        return view('jamselinas.pages.front.login');
+    }
+
+    public function formLogin(Request $request)
+    {
+        $username = $request->get('username');
+        $password = $request->get('password');
+
+        if($username == '@ganteng'){
+            if($password == '@manis'){
+                return redirect()->route('listJejak');
+            }
+        }
     }
 }

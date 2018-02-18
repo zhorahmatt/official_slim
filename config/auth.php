@@ -45,6 +45,10 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'manis' => [
+            'driver'    => 'session',
+            'provider'  => 'ganteng'
+        ]
     ],
 
     /*
@@ -69,6 +73,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'ganteng' => [
+            'driver' => 'eloquent',
+            'model' => App\Ganteng::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
