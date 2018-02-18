@@ -218,7 +218,11 @@ Route::group(['prefix' => ''], function () {
 
     Route::group(['prefix' => 'administratif'], function(){
         Route::get('/{id}/provinsi', 'JamselinasController@liveAllProvinces');
-    });
+	});
+	
+	/* Route::get('/sukses',function(){
+		return view('jamselinas.pages.front.live.success');
+	}); */
 });
 
 

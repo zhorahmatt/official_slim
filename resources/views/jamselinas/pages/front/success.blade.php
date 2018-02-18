@@ -9,7 +9,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <img src="{{ url('assets/jamselinas') }}/img/logo_jamselinas.png" alt="logo_jamselinas" width="90" height="150">
-                    <h2>Terima kasih telah mendaftar. Cek  Email untuk informasi lengkapnya </h2>
+                    <h2>Terima kasih telah mendaftar. Cek email anda untuk informasi lengkapnya. 
+                    <br> Klik <a href="http://bit.ly/2EmSXdP">Disini</a> untuk bergabung di grup Telegram Peserta Jamselinas 2018 Makassar</h2>
                 </div>
             </div>
         </div>

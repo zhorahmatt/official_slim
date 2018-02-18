@@ -5,8 +5,6 @@ form jamselinas 8 makassar :
             - jenis kelamin
             - kota
             - komunitas
-            - 
-        - 
     - email queue yang menggunakan smtp gmail -> menggunakan mailable in controller -> DONE
     - export to excel
     - jangan lupa untuk pke old di view form nya
@@ -61,10 +59,16 @@ OPSI :
                 - hub. panitia
 
 ###################################################################
+TASK LIST 29 Februari 2018
+
+- pertimbangkan penyimpanan gambar jamselinas menggunakan tipe BLOB
+- kalau tidak memungkinkan, ganti saja dengan tipe string
+- dashboard jamselinas buatkan form login dengan simple kondisi
+- rekap peserta jamselinas.
+- view sukses, tampilkan link telegram
 
 
-
-
+######################################################################################
 official website slim
     - hilangkan bayang-bayang developer sebelumnya
     - ada bagian di galleri yang bermasalah
